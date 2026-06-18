@@ -3,67 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Apollo's Website</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      color: #222;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 100px auto;
-      padding: 40px;
-      text-align: center;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    }
-
-    h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #555;
-    }
-
-    a {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 22px;
-      background: #24292f;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-    }
-
-    a:hover {
-      background: #444c56;
-    }
-  </style>
+  <meta name="description" content="Apollo 的个人航拍影像网站，展示城市、海岸与山野视角。">
+  <title>Apollo | Aerial Stories</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <main class="container">
-    <h1>Hello, I’m Apollo 👋</h1>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Apollo 主页">Apollo</a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#works">作品</a>
+      <a href="#about">关于</a>
+      <a href="#contact">联系</a>
+    </nav>
+  </header>
 
-    <p>
-      Welcome to my personal website.
-      I am interested in mathematics, engineering, debate,
-      science fiction, and technology.
-    </p>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Aerial Video Portfolio</p>
+        <h1 id="hero-title">用航拍记录城市、海岸和山野的呼吸。</h1>
+        <p class="hero-text">
+          我是 Apollo，喜欢从高空寻找日常场景里安静、开阔的一面。这里会收集我的航拍视频、照片和每一次飞行背后的观察。
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#works">查看作品</a>
+          <a class="button secondary" href="#about">了解 Apollo</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="航拍影像预览">
+        <div class="skyline"></div>
+        <div class="flight-path"></div>
+        <div class="hero-caption">
+          <span>Latest Flight</span>
+          <strong>Golden Coast 04:32</strong>
+        </div>
+      </div>
+    </section>
 
-    <a href="https://github.com/你的用户名">
-      Visit my GitHub
-    </a>
+    <section class="section intro" id="about" aria-labelledby="about-title">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2 id="about-title">Apollo 的影像笔记</h2>
+      </div>
+      <p>
+        我关注光线、地形、建筑与人的活动痕迹。航拍对我来说不是炫技，而是一种换个高度理解世界的方式。这个网站先作为作品集框架，后续可以继续加入真实视频、拍摄参数、地点故事和项目合作信息。
+      </p>
+    </section>
+
+    <section class="section" id="works" aria-labelledby="works-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Selected Works</p>
+          <h2 id="works-title">航拍作品</h2>
+        </div>
+        <p>每个作品都有独立页面，适合放视频、照片组、拍摄地点和简短说明。</p>
+      </div>
+
+      <div class="work-grid">
+        <article class="work-card">
+          <a href="work/golden-coast.html" aria-label="查看 Golden Coast 作品页">
+            <div class="thumb coast"></div>
+            <div class="work-card-copy">
+              <span>海岸 / 日落</span>
+              <h3>Golden Coast</h3>
+              <p>低速掠过海岸线，记录城市边缘与潮水的距离。</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="work-card">
+          <a href="work/city-lines.html" aria-label="查看 City Lines 作品页">
+            <div class="thumb city"></div>
+            <div class="work-card-copy">
+              <span>城市 / 几何</span>
+              <h3>City Lines</h3>
+              <p>从高空看道路、楼群与光影交错形成的秩序。</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="work-card">
+          <a href="work/mountain-wind.html" aria-label="查看 Mountain Wind 作品页">
+            <div class="thumb mountain"></div>
+            <div class="work-card-copy">
+              <span>山野 / 清晨</span>
+              <h3>Mountain Wind</h3>
+              <p>沿山脊飞行，捕捉晨雾和风穿过地形的层次。</p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-title">一起看更高一点的世界</h2>
+      </div>
+      <a class="button primary" href="mailto:apollo@example.com">apollo@example.com</a>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <span>© 2026 Apollo</span>
+    <span>Aerial video portfolio</span>
+  </footer>
 </body>
 </html>
