@@ -3,38 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Apollo 航拍作品 Mountain Wind。">
+  <meta name="description" content="Apollo 航拍作品 Mountain Wind。" data-i18n-content="meta.mountainDescription">
   <title>Mountain Wind | Apollo</title>
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="../index.html">Apollo</a>
-    <nav class="nav" aria-label="主导航">
-      <a href="../index.html#works">作品</a>
-      <a href="../index.html#about">关于</a>
-      <a href="../index.html#contact">联系</a>
+    <a class="brand" href="../index.html" aria-label="Apollo 主页" data-i18n-aria-label="nav.homeLabel">Apollo</a>
+    <nav class="nav" aria-label="主导航" data-i18n-aria-label="nav.label">
+      <a href="../index.html#works" data-i18n="nav.works">作品</a>
+      <a href="../index.html#about" data-i18n="nav.about">关于</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">联系</a>
+      <div class="language-switch" aria-label="语言切换" data-i18n-aria-label="language.switchLabel">
+        <button type="button" data-lang-button="zh">中文</button>
+        <button type="button" data-lang-button="en">EN</button>
+      </div>
     </nav>
   </header>
 
   <main class="work-page">
     <section class="work-hero">
       <div>
-        <p class="eyebrow">Aerial Work</p>
+        <p class="eyebrow" data-i18n="work.eyebrow">Aerial Work</p>
         <h1>Mountain Wind</h1>
         <div class="work-meta">
-          <span>山野</span>
-          <span>清晨</span>
+          <span data-i18n="work.mountain">山野</span>
+          <span data-i18n="work.morning">清晨</span>
           <span>05:06</span>
         </div>
         <div class="page-actions">
-          <a class="button primary" href="../index.html#works">返回作品</a>
-          <a class="button secondary" href="mailto:apollo@example.com">联系 Apollo</a>
+          <a class="button primary" href="../index.html#works" data-i18n="work.back">返回作品</a>
+          <a class="button secondary" href="mailto:apollo@example.com" data-i18n="work.contact">联系 Apollo</a>
         </div>
       </div>
       <div class="media-frame">
         <div class="media-placeholder mountain">
-          <p>把真实视频放到 assets/videos/mountain-wind.mp4 后，可在这里替换为 video 标签。</p>
+          <p data-i18n="work.mountainPlaceholder">把真实视频放到 assets/videos/mountain-wind.mp4 后，可在这里替换为 video 标签。</p>
         </div>
       </div>
     </section>
@@ -42,27 +46,28 @@
     <section class="story-grid">
       <dl>
         <div>
-          <dt>地点</dt>
+          <dt data-i18n="work.location">地点</dt>
           <dd>Mountain Ridge</dd>
         </div>
         <div>
-          <dt>设备</dt>
+          <dt data-i18n="work.gear">设备</dt>
           <dd>Drone Camera</dd>
         </div>
         <div>
-          <dt>状态</dt>
-          <dd>示例作品页</dd>
+          <dt data-i18n="work.status">状态</dt>
+          <dd data-i18n="work.statusValue">示例作品页</dd>
         </div>
       </dl>
       <div class="story-text">
-        <p>
+        <p data-i18n="work.mountainStory1">
           这一页用于山野航拍作品。可以记录晨雾、山脊、风向、飞行高度，以及画面从低处到开阔视野的变化。
         </p>
-        <p>
+        <p data-i18n="work.mountainStory2">
           真实内容就位后，页面会更像一篇简短的影像手记。
         </p>
       </div>
     </section>
   </main>
+  <script src="../language.js"></script>
 </body>
 </html>

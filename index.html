@@ -3,38 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Apollo 的个人航拍影像网站，展示城市、海岸与山野视角。">
+  <meta name="description" content="Apollo 的个人航拍影像网站，展示城市、海岸与山野视角。" data-i18n-content="meta.homeDescription">
   <title>Apollo | Aerial Stories</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Apollo 主页">Apollo</a>
-    <nav class="nav" aria-label="主导航">
-      <a href="#works">作品</a>
-      <a href="#about">关于</a>
-      <a href="#contact">联系</a>
+    <a class="brand" href="index.html" aria-label="Apollo 主页" data-i18n-aria-label="nav.homeLabel">Apollo</a>
+    <nav class="nav" aria-label="主导航" data-i18n-aria-label="nav.label">
+      <a href="#works" data-i18n="nav.works">作品</a>
+      <a href="#about" data-i18n="nav.about">关于</a>
+      <a href="#contact" data-i18n="nav.contact">联系</a>
+      <div class="language-switch" aria-label="语言切换" data-i18n-aria-label="language.switchLabel">
+        <button type="button" data-lang-button="zh">中文</button>
+        <button type="button" data-lang-button="en">EN</button>
+      </div>
     </nav>
   </header>
 
   <main>
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow">Aerial Video Portfolio</p>
-        <h1 id="hero-title">用航拍记录城市、海岸和山野的呼吸。</h1>
-        <p class="hero-text">
+        <p class="eyebrow" data-i18n="home.heroEyebrow">Aerial Video Portfolio</p>
+        <h1 id="hero-title" data-i18n="home.heroTitle">用航拍记录城市、海岸和山野的呼吸。</h1>
+        <p class="hero-text" data-i18n="home.heroText">
           我是 Apollo，喜欢从高空寻找日常场景里安静、开阔的一面。这里会收集我的航拍视频、照片和每一次飞行背后的观察。
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="#works">查看作品</a>
-          <a class="button secondary" href="#about">了解 Apollo</a>
+          <a class="button primary" href="#works" data-i18n="home.viewWorks">查看作品</a>
+          <a class="button secondary" href="#about" data-i18n="home.aboutApollo">了解 Apollo</a>
         </div>
       </div>
-      <div class="hero-visual" aria-label="航拍影像预览">
+      <div class="hero-visual" aria-label="航拍影像预览" data-i18n-aria-label="home.heroVisualLabel">
         <div class="skyline"></div>
         <div class="flight-path"></div>
         <div class="hero-caption">
-          <span>Latest Flight</span>
+          <span data-i18n="home.latestFlight">Latest Flight</span>
           <strong>Golden Coast 04:32</strong>
         </div>
       </div>
@@ -42,10 +46,10 @@
 
     <section class="section intro" id="about" aria-labelledby="about-title">
       <div>
-        <p class="eyebrow">About</p>
-        <h2 id="about-title">Apollo 的影像笔记</h2>
+        <p class="eyebrow" data-i18n="home.aboutEyebrow">About</p>
+        <h2 id="about-title" data-i18n="home.aboutTitle">Apollo 的影像笔记</h2>
       </div>
-      <p>
+      <p data-i18n="home.aboutText">
         我关注光线、地形、建筑与人的活动痕迹。航拍对我来说不是炫技，而是一种换个高度理解世界的方式。这个网站先作为作品集框架，后续可以继续加入真实视频、拍摄参数、地点故事和项目合作信息。
       </p>
     </section>
@@ -53,42 +57,42 @@
     <section class="section" id="works" aria-labelledby="works-title">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">Selected Works</p>
-          <h2 id="works-title">航拍作品</h2>
+          <p class="eyebrow" data-i18n="home.worksEyebrow">Selected Works</p>
+          <h2 id="works-title" data-i18n="home.worksTitle">航拍作品</h2>
         </div>
-        <p>每个作品都有独立页面，适合放视频、照片组、拍摄地点和简短说明。</p>
+        <p data-i18n="home.worksText">每个作品都有独立页面，适合放视频、照片组、拍摄地点和简短说明。</p>
       </div>
 
       <div class="work-grid">
         <article class="work-card">
-          <a href="work/golden-coast.html" aria-label="查看 Golden Coast 作品页">
+          <a href="work/golden-coast.html" aria-label="查看 Golden Coast 作品页" data-i18n-aria-label="home.goldenLabel">
             <div class="thumb coast"></div>
             <div class="work-card-copy">
-              <span>海岸 / 日落</span>
+              <span data-i18n="home.goldenMeta">海岸 / 日落</span>
               <h3>Golden Coast</h3>
-              <p>低速掠过海岸线，记录城市边缘与潮水的距离。</p>
+              <p data-i18n="home.goldenText">低速掠过海岸线，记录城市边缘与潮水的距离。</p>
             </div>
           </a>
         </article>
 
         <article class="work-card">
-          <a href="work/city-lines.html" aria-label="查看 City Lines 作品页">
+          <a href="work/city-lines.html" aria-label="查看 City Lines 作品页" data-i18n-aria-label="home.cityLabel">
             <div class="thumb city"></div>
             <div class="work-card-copy">
-              <span>城市 / 几何</span>
+              <span data-i18n="home.cityMeta">城市 / 几何</span>
               <h3>City Lines</h3>
-              <p>从高空看道路、楼群与光影交错形成的秩序。</p>
+              <p data-i18n="home.cityText">从高空看道路、楼群与光影交错形成的秩序。</p>
             </div>
           </a>
         </article>
 
         <article class="work-card">
-          <a href="work/mountain-wind.html" aria-label="查看 Mountain Wind 作品页">
+          <a href="work/mountain-wind.html" aria-label="查看 Mountain Wind 作品页" data-i18n-aria-label="home.mountainLabel">
             <div class="thumb mountain"></div>
             <div class="work-card-copy">
-              <span>山野 / 清晨</span>
+              <span data-i18n="home.mountainMeta">山野 / 清晨</span>
               <h3>Mountain Wind</h3>
-              <p>沿山脊飞行，捕捉晨雾和风穿过地形的层次。</p>
+              <p data-i18n="home.mountainText">沿山脊飞行，捕捉晨雾和风穿过地形的层次。</p>
             </div>
           </a>
         </article>
@@ -97,8 +101,8 @@
 
     <section class="section contact" id="contact" aria-labelledby="contact-title">
       <div>
-        <p class="eyebrow">Contact</p>
-        <h2 id="contact-title">一起看更高一点的世界</h2>
+        <p class="eyebrow" data-i18n="home.contactEyebrow">Contact</p>
+        <h2 id="contact-title" data-i18n="home.contactTitle">一起看更高一点的世界</h2>
       </div>
       <a class="button primary" href="mailto:apollo@example.com">apollo@example.com</a>
     </section>
@@ -106,7 +110,8 @@
 
   <footer class="site-footer">
     <span>© 2026 Apollo</span>
-    <span>Aerial video portfolio</span>
+    <span data-i18n="footer.tagline">Aerial video portfolio</span>
   </footer>
+  <script src="language.js"></script>
 </body>
 </html>
