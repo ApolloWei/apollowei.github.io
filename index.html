@@ -50,7 +50,7 @@
           <p class="eyebrow" data-i18n="home.mapEyebrow">Explore by Region</p>
           <h2 id="map-title" data-i18n="home.mapTitle">按地区查看航拍作品</h2>
         </div>
-        <p data-i18n="home.mapText">点击地图上的地区标记，进入对应的航拍作品。后续上传真实视频后，可以继续添加新的地点。</p>
+        <p data-i18n="home.mapText">点击地图上的洲或地区标记，先查看该地区的作品列表，再进入具体视频。</p>
       </div>
 
       <div class="world-map" aria-label="世界地图作品入口" data-i18n-aria-label="home.mapLabel">
@@ -75,15 +75,54 @@
           </g>
         </svg>
 
-        <a class="map-pin pin-east-asia" href="work/golden-coast.html" data-map-region>
-          <span data-i18n="home.mapEastAsia">东亚</span>
+        <a class="map-pin pin-east-asia" href="#region-asia" data-map-region>
+          <span data-i18n="home.mapEastAsia">亚洲</span>
         </a>
-        <a class="map-pin pin-north-america" href="work/city-lines.html" data-map-region>
+        <a class="map-pin pin-north-america" href="#region-north-america" data-map-region>
           <span data-i18n="home.mapNorthAmerica">北美</span>
         </a>
-        <a class="map-pin pin-europe" href="work/mountain-wind.html" data-map-region>
+        <a class="map-pin pin-europe" href="#region-europe" data-map-region>
           <span data-i18n="home.mapEurope">欧洲</span>
         </a>
+      </div>
+
+      <div class="region-lists" aria-label="地区作品列表" data-i18n-aria-label="home.regionListsLabel">
+        <section class="region-panel" id="region-asia" aria-labelledby="region-asia-title">
+          <div>
+            <p class="eyebrow" data-i18n="home.regionAsiaEyebrow">Asia</p>
+            <h3 id="region-asia-title" data-i18n="home.regionAsiaTitle">亚洲作品</h3>
+          </div>
+          <a class="region-item" href="work/golden-coast.html">
+            <span data-i18n="home.goldenMeta">海岸 / 日落</span>
+            <strong>Golden Coast</strong>
+          </a>
+        </section>
+
+        <section class="region-panel" id="region-north-america" aria-labelledby="region-north-america-title">
+          <div>
+            <p class="eyebrow" data-i18n="home.regionNorthAmericaEyebrow">North America</p>
+            <h3 id="region-north-america-title" data-i18n="home.regionNorthAmericaTitle">北美作品</h3>
+          </div>
+          <a class="region-item" href="work/city-lines.html">
+            <span data-i18n="home.cityMeta">城市 / 几何</span>
+            <strong>City Lines</strong>
+          </a>
+        </section>
+
+        <section class="region-panel" id="region-europe" aria-labelledby="region-europe-title">
+          <div>
+            <p class="eyebrow" data-i18n="home.regionEuropeEyebrow">Europe</p>
+            <h3 id="region-europe-title" data-i18n="home.regionEuropeTitle">欧洲作品</h3>
+          </div>
+          <a class="region-item featured" href="work/switzerland-field.html">
+            <span data-i18n="home.switzerlandMeta">瑞士 / 稻田</span>
+            <strong data-i18n="home.switzerlandTitle">瑞士·稻田</strong>
+          </a>
+          <a class="region-item" href="work/mountain-wind.html">
+            <span data-i18n="home.mountainMeta">山野 / 清晨</span>
+            <strong>Mountain Wind</strong>
+          </a>
+        </section>
       </div>
     </section>
 

@@ -5,7 +5,8 @@
         homeDescription: "Apollo 的个人航拍影像网站，展示城市、海岸与山野视角。",
         goldenDescription: "Apollo 航拍作品 Golden Coast。",
         cityDescription: "Apollo 航拍作品 City Lines。",
-        mountainDescription: "Apollo 航拍作品 Mountain Wind。"
+        mountainDescription: "Apollo 航拍作品 Mountain Wind。",
+        switzerlandDescription: "Apollo 航拍作品 瑞士·稻田。"
       },
       nav: {
         label: "主导航",
@@ -33,11 +34,20 @@
         worksText: "每个作品都有独立页面，适合放视频、照片组、拍摄地点和简短说明。",
         mapEyebrow: "Explore by Region",
         mapTitle: "按地区查看航拍作品",
-        mapText: "点击地图上的地区标记，进入对应的航拍作品。后续上传真实视频后，可以继续添加新的地点。",
+        mapText: "点击地图上的洲或地区标记，先查看该地区的作品列表，再进入具体视频。",
         mapLabel: "世界地图作品入口",
-        mapEastAsia: "东亚",
+        regionListsLabel: "地区作品列表",
+        mapEastAsia: "亚洲",
         mapNorthAmerica: "北美",
         mapEurope: "欧洲",
+        regionAsiaEyebrow: "Asia",
+        regionAsiaTitle: "亚洲作品",
+        regionNorthAmericaEyebrow: "North America",
+        regionNorthAmericaTitle: "北美作品",
+        regionEuropeEyebrow: "Europe",
+        regionEuropeTitle: "欧洲作品",
+        switzerlandMeta: "瑞士 / 稻田",
+        switzerlandTitle: "瑞士·稻田",
         goldenLabel: "查看 Golden Coast 作品页",
         goldenMeta: "海岸 / 日落",
         goldenText: "低速掠过海岸线，记录城市边缘与潮水的距离。",
@@ -72,7 +82,15 @@
         cityStory2: "后续可以扩展为照片组、视频嵌入、地图位置或拍摄日志。",
         mountainPlaceholder: "把真实视频放到 assets/videos/mountain-wind.mp4 后，可在这里替换为 video 标签。",
         mountainStory1: "这一页用于山野航拍作品。可以记录晨雾、山脊、风向、飞行高度，以及画面从低处到开阔视野的变化。",
-        mountainStory2: "真实内容就位后，页面会更像一篇简短的影像手记。"
+        mountainStory2: "真实内容就位后，页面会更像一篇简短的影像手记。",
+        switzerlandTitle: "瑞士·稻田",
+        switzerlandCountry: "瑞士",
+        field: "稻田",
+        europe: "欧洲",
+        backRegion: "返回欧洲列表",
+        realVideo: "真实视频",
+        switzerlandStory1: "这段视频拍摄于瑞士，记录稻田与地形在高空视角下形成的纹理。",
+        switzerlandStory2: "后续可以继续补充具体地点、拍摄时间、飞行路线和设备参数。"
       },
       footer: {
         tagline: "Aerial video portfolio"
@@ -83,7 +101,8 @@
         homeDescription: "Apollo's personal aerial video portfolio, featuring city, coast, and mountain perspectives.",
         goldenDescription: "Apollo aerial work: Golden Coast.",
         cityDescription: "Apollo aerial work: City Lines.",
-        mountainDescription: "Apollo aerial work: Mountain Wind."
+        mountainDescription: "Apollo aerial work: Mountain Wind.",
+        switzerlandDescription: "Apollo aerial work: Switzerland's Field."
       },
       nav: {
         label: "Main navigation",
@@ -111,11 +130,20 @@
         worksText: "Each work has its own page for video, photo sets, shooting locations, and short notes.",
         mapEyebrow: "Explore by Region",
         mapTitle: "Browse Aerial Works by Region",
-        mapText: "Click a region marker on the map to open the matching aerial work. New locations can be added as real videos are uploaded.",
+        mapText: "Click a continent or region marker on the map, browse that region's list, then open a specific video.",
         mapLabel: "World map entry points for aerial works",
-        mapEastAsia: "East Asia",
+        regionListsLabel: "Regional work lists",
+        mapEastAsia: "Asia",
         mapNorthAmerica: "North America",
         mapEurope: "Europe",
+        regionAsiaEyebrow: "Asia",
+        regionAsiaTitle: "Asia Works",
+        regionNorthAmericaEyebrow: "North America",
+        regionNorthAmericaTitle: "North America Works",
+        regionEuropeEyebrow: "Europe",
+        regionEuropeTitle: "Europe Works",
+        switzerlandMeta: "Switzerland / Field",
+        switzerlandTitle: "Switzerland's Field",
         goldenLabel: "Open Golden Coast work page",
         goldenMeta: "Coast / Sunset",
         goldenText: "A slow pass along the shoreline, tracing the distance between the city edge and the tide.",
@@ -150,7 +178,15 @@
         cityStory2: "Later it can expand with photo sets, embedded video, map location, or flight notes.",
         mountainPlaceholder: "Place the real video at assets/videos/mountain-wind.mp4, then replace this area with a video tag.",
         mountainStory1: "This page is for mountain aerial footage. It can record morning mist, ridgelines, wind direction, flight altitude, and the shift from lower details to open views.",
-        mountainStory2: "Once real content is added, the page will feel more like a short visual journal."
+        mountainStory2: "Once real content is added, the page will feel more like a short visual journal.",
+        switzerlandTitle: "Switzerland's Field",
+        switzerlandCountry: "Switzerland",
+        field: "Field",
+        europe: "Europe",
+        backRegion: "Back to Europe List",
+        realVideo: "Real video",
+        switzerlandStory1: "This video was filmed in Switzerland, capturing the texture of fields and terrain from above.",
+        switzerlandStory2: "Later, this page can include the exact location, shooting time, flight route, and gear details."
       },
       footer: {
         tagline: "Aerial video portfolio"
@@ -225,6 +261,15 @@
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
+
+  if (location.hash === "#region-map" || location.hash.indexOf("#region-") === 0) {
+    const regionMap = document.querySelector("#region-map");
+    const mapToggle = document.querySelector("[data-map-toggle]");
+    const hashTarget = document.querySelector(location.hash);
+    if (regionMap) regionMap.classList.remove("is-hidden");
+    if (mapToggle) mapToggle.setAttribute("aria-expanded", "true");
+    if (hashTarget) requestAnimationFrame(() => hashTarget.scrollIntoView({ block: "start" }));
+  }
 
   applyLanguage(initialLanguage);
 })();
