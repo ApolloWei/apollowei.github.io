@@ -60,6 +60,23 @@
           <button class="button primary" type="submit">上传并发布</button>
           <p class="admin-status" data-upload-status></p>
         </form>
+        <form class="admin-card admin-form" data-edit-form>
+          <h2>修改视频描述</h2>
+          <p class="admin-note">选择已发布的视频，修改中英文介绍后保存。标题、分类和视频文件不会被改动。</p>
+          <label>GitHub Token<input type="password" data-edit-token placeholder="ghp_..." autocomplete="off" required></label>
+          <label>选择视频
+            <select data-edit-work required>
+              <option value="">请选择视频</option>
+            </select>
+          </label>
+          <div class="admin-two-cols">
+            <label>中文介绍<textarea data-edit-description-zh rows="5" required></textarea></label>
+            <label>英文介绍<textarea data-edit-description-en rows="5" required></textarea></label>
+          </div>
+          <button class="button primary" type="submit">保存描述</button>
+          <p class="admin-status" data-edit-status></p>
+        </form>
+
         <section class="admin-card">
           <h2>删除已上传视频</h2>
           <p class="admin-note">这里管理的是通过本页面上传到动态列表的视频。删除会同时更新作品列表，并尝试删除仓库中的视频文件。</p>

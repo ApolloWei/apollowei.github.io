@@ -10,6 +10,7 @@
   const panel = document.querySelector("[data-admin-panel]");
   const login = document.querySelector("[data-admin-login]");
   const list = document.querySelector("[data-admin-list]");
+  const editSelect = document.querySelector("[data-edit-work]");
   let catalog = { works: [] };
   let catalogSha = null;
   function showPanel() { lock.classList.add("is-hidden"); panel.classList.remove("is-hidden"); loadPublicCatalog(); }
@@ -53,7 +54,58 @@
   async function saveContent(token, filePath, content, message, sha) { const body = { message, content, branch }; if (sha) body.sha = sha; const response = await fetch(apiBase + encodeURIComponent(filePath).replace(/%2F/g, "/"), { method: "PUT", headers: { ...headers(token), "Content-Type": "application/json" }, body: JSON.stringify(body) }); if (!response.ok) throw new Error(await response.text()); return response.json(); }
   async function deleteContent(token, filePath, message) { const file = await getContent(token, filePath); if (!file) return; const response = await fetch(apiBase + encodeURIComponent(filePath).replace(/%2F/g, "/"), { method: "DELETE", headers: { ...headers(token), "Content-Type": "application/json" }, body: JSON.stringify({ message, sha: file.sha, branch }) }); if (!response.ok) throw new Error(await response.text()); }
   function renderList() { if (!list) return; list.innerHTML = ""; if (!catalog.works.length) { list.innerHTML = '<p class="admin-note">还没有通过管理页上传的视频。</p>'; return; } catalog.works.forEach((work) => { const row = document.createElement("div"); row.className = "admin-list-item"; row.innerHTML = '<div><strong></strong><span></span></div><button class="button secondary" type="button">删除</button>'; row.querySelector("strong").textContent = work.title.zh; row.querySelector("span").textContent = work.meta.zh; row.querySelector("button").addEventListener("click", () => removeWork(work.id)); list.appendChild(row); }); }
-  async function loadPublicCatalog() { try { const response = await fetch("data/works.json", { cache: "no-store" }); catalog = response.ok ? await response.json() : { works: [] }; if (!Array.isArray(catalog.works)) catalog.works = []; } catch (error) {} renderList(); }
-  document.querySelector("[data-upload-form]").addEventListener("submit", async (event) => { event.preventDefault(); const status = document.querySelector("[data-upload-status]"); const form = event.currentTarget; const token = form.querySelector("[data-token]").value.trim(); const file = form.querySelector("[data-video-file]").files[0]; if (!file) return; if (file.size > 70 * 1024 * 1024) { status.textContent = "视频超过 70MB。通过 GitHub API 上传会转成 Base64，实际体积会变大，请先压缩后再上传。"; return; } const videoError = await validateVideoFile(file); if (videoError) { status.textContent = videoError; return; } status.textContent = "正在上传，请不要关闭页面..."; try { await loadCatalogWithToken(token); const titleZh = form.querySelector("[data-title-zh]").value.trim(); const titleEn = form.querySelector("[data-title-en]").value.trim(); const id = slugify(titleEn) + "-" + Date.now(); const videoPath = "assets/videos/" + id + ".mp4"; await saveContent(token, videoPath, await fileToBase64(file), "Add video " + titleEn, null); catalog.works.push({ id, region: form.querySelector("[data-region]").value, title: { zh: titleZh, en: titleEn }, meta: { zh: form.querySelector("[data-meta-zh]").value.trim(), en: form.querySelector("[data-meta-en]").value.trim() }, description: { zh: form.querySelector("[data-description-zh]").value.trim(), en: form.querySelector("[data-description-en]").value.trim() }, videoPath, createdAt: new Date().toISOString() }); const saved = await saveContent(token, catalogPath, toBase64Text(JSON.stringify(catalog, null, 2) + "\n"), "Update video catalog", catalogSha); catalogSha = saved.content.sha; status.textContent = "上传完成。GitHub Pages 可能需要几十秒更新。"; form.reset(); renderList(); } catch (error) { status.textContent = "上传失败：" + readableError(error); console.error(error); } });
-  async function removeWork(id) { const status = document.querySelector("[data-delete-status]"); const token = document.querySelector("[data-delete-token]").value.trim(); const passwordInput = document.querySelector("[data-delete-password]"); const password = passwordInput ? passwordInput.value : ""; if (password !== deletePassword) { status.textContent = "删除密码不正确。"; if (passwordInput) { passwordInput.value = ""; passwordInput.focus(); } return; } if (!token) { status.textContent = "请先输入 GitHub Token。"; return; } status.textContent = "正在删除..."; try { await loadCatalogWithToken(token); const current = catalog.works.find((item) => item.id === id); if (current) await deleteContent(token, current.videoPath, "Delete video " + current.title.en); catalog.works = catalog.works.filter((item) => item.id !== id); const saved = await saveContent(token, catalogPath, toBase64Text(JSON.stringify(catalog, null, 2) + "\n"), "Update video catalog", catalogSha); catalogSha = saved.content.sha; status.textContent = "删除完成。GitHub Pages 可能需要几十秒更新。"; renderList(); } catch (error) { status.textContent = "删除失败：" + readableError(error); console.error(error); } }
+  function renderEditOptions() {
+    if (!editSelect) return;
+    const current = editSelect.value;
+    editSelect.innerHTML = '<option value="">请选择视频</option>';
+    catalog.works.forEach((work) => {
+      const option = document.createElement("option");
+      option.value = work.id;
+      option.textContent = work.title.zh + " / " + work.title.en;
+      editSelect.appendChild(option);
+    });
+    if (catalog.works.some((work) => work.id === current)) editSelect.value = current;
+    fillEditForm(editSelect.value);
+  }
+  function fillEditForm(id) {
+    const zh = document.querySelector("[data-edit-description-zh]");
+    const en = document.querySelector("[data-edit-description-en]");
+    if (!zh || !en) return;
+    const work = catalog.works.find((item) => item.id === id);
+    zh.value = work && work.description ? work.description.zh || "" : "";
+    en.value = work && work.description ? work.description.en || "" : "";
+  }
+  async function loadPublicCatalog() { try { const response = await fetch("data/works.json", { cache: "no-store" }); catalog = response.ok ? await response.json() : { works: [] }; if (!Array.isArray(catalog.works)) catalog.works = []; } catch (error) {} renderList(); renderEditOptions(); }
+  if (editSelect) editSelect.addEventListener("change", () => fillEditForm(editSelect.value));
+  const editForm = document.querySelector("[data-edit-form]");
+  if (editForm) editForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const status = document.querySelector("[data-edit-status]");
+    const token = editForm.querySelector("[data-edit-token]").value.trim();
+    const id = editSelect ? editSelect.value : "";
+    if (!id) { status.textContent = "请先选择一个视频。"; return; }
+    status.textContent = "正在保存描述...";
+    try {
+      await loadCatalogWithToken(token);
+      const work = catalog.works.find((item) => item.id === id);
+      if (!work) { status.textContent = "没有找到这个视频，可能已经被删除。"; return; }
+      work.description = {
+        zh: editForm.querySelector("[data-edit-description-zh]").value.trim(),
+        en: editForm.querySelector("[data-edit-description-en]").value.trim()
+      };
+      const saved = await saveContent(token, catalogPath, toBase64Text(JSON.stringify(catalog, null, 2) + "\n"), "Update video description", catalogSha);
+      catalogSha = saved.content.sha;
+      status.textContent = "描述已保存。GitHub Pages 可能需要几十秒更新。";
+      renderList();
+      renderEditOptions();
+      if (editSelect) editSelect.value = id;
+      fillEditForm(id);
+    } catch (error) {
+      status.textContent = "保存失败：" + readableError(error);
+      console.error(error);
+    }
+  });
+
+  document.querySelector("[data-upload-form]").addEventListener("submit", async (event) => { event.preventDefault(); const status = document.querySelector("[data-upload-status]"); const form = event.currentTarget; const token = form.querySelector("[data-token]").value.trim(); const file = form.querySelector("[data-video-file]").files[0]; if (!file) return; if (file.size > 70 * 1024 * 1024) { status.textContent = "视频超过 70MB。通过 GitHub API 上传会转成 Base64，实际体积会变大，请先压缩后再上传。"; return; } const videoError = await validateVideoFile(file); if (videoError) { status.textContent = videoError; return; } status.textContent = "正在上传，请不要关闭页面..."; try { await loadCatalogWithToken(token); const titleZh = form.querySelector("[data-title-zh]").value.trim(); const titleEn = form.querySelector("[data-title-en]").value.trim(); const id = slugify(titleEn) + "-" + Date.now(); const videoPath = "assets/videos/" + id + ".mp4"; await saveContent(token, videoPath, await fileToBase64(file), "Add video " + titleEn, null); catalog.works.push({ id, region: form.querySelector("[data-region]").value, title: { zh: titleZh, en: titleEn }, meta: { zh: form.querySelector("[data-meta-zh]").value.trim(), en: form.querySelector("[data-meta-en]").value.trim() }, description: { zh: form.querySelector("[data-description-zh]").value.trim(), en: form.querySelector("[data-description-en]").value.trim() }, videoPath, createdAt: new Date().toISOString() }); const saved = await saveContent(token, catalogPath, toBase64Text(JSON.stringify(catalog, null, 2) + "\n"), "Update video catalog", catalogSha); catalogSha = saved.content.sha; status.textContent = "上传完成。GitHub Pages 可能需要几十秒更新。"; form.reset(); renderList(); renderEditOptions(); } catch (error) { status.textContent = "上传失败：" + readableError(error); console.error(error); } });
+  async function removeWork(id) { const status = document.querySelector("[data-delete-status]"); const token = document.querySelector("[data-delete-token]").value.trim(); const passwordInput = document.querySelector("[data-delete-password]"); const password = passwordInput ? passwordInput.value : ""; if (password !== deletePassword) { status.textContent = "删除密码不正确。"; if (passwordInput) { passwordInput.value = ""; passwordInput.focus(); } return; } if (!token) { status.textContent = "请先输入 GitHub Token。"; return; } status.textContent = "正在删除..."; try { await loadCatalogWithToken(token); const current = catalog.works.find((item) => item.id === id); if (current) await deleteContent(token, current.videoPath, "Delete video " + current.title.en); catalog.works = catalog.works.filter((item) => item.id !== id); const saved = await saveContent(token, catalogPath, toBase64Text(JSON.stringify(catalog, null, 2) + "\n"), "Update video catalog", catalogSha); catalogSha = saved.content.sha; status.textContent = "删除完成。GitHub Pages 可能需要几十秒更新。"; renderList(); renderEditOptions(); } catch (error) { status.textContent = "删除失败：" + readableError(error); console.error(error); } }
 })();
