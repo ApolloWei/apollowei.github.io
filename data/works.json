@@ -17,6 +17,24 @@
       },
       "videoPath": "assets/videos/qiandao-lake-1784294304223.mp4",
       "createdAt": "2026-07-17T13:18:29.222Z"
+    },
+    {
+      "id": "hangzhou-little-lighthouse-1784295162123",
+      "region": "asia",
+      "title": {
+        "zh": "杭州小灯塔",
+        "en": "Hangzhou Little Lighthouse"
+      },
+      "meta": {
+        "zh": "杭州 / 灯塔",
+        "en": "Hangzhou / Lighthouse"
+      },
+      "description": {
+        "zh": "这是一个位于杭州市千岛湖景区的网红小灯塔。在落日时间会非常美丽、浪漫。",
+        "en": "This is a popular small lighthouse located in Qiandao Lake Scenic Area, Hangzhou. It will be very beautiful and romantic during sunset time."
+      },
+      "videoPath": "assets/videos/hangzhou-little-lighthouse-1784295162123.mp4",
+      "createdAt": "2026-07-17T13:32:49.907Z"
     }
   ]
 }
