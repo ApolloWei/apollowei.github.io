@@ -12,6 +12,7 @@
     document.querySelector("[data-video-region]").textContent = labels[work.region] || work.region;
     document.querySelector("[data-video-region-detail]").textContent = labels[work.region] || work.region;
     document.querySelector("[data-video-description]").textContent = text(work.description);
+    document.querySelector("[data-video-gear]").textContent = work.gear || "Drone Camera";
     document.querySelector("[data-back-link]").href = "../hall.html#region-" + work.region;
     const source = document.createElement("source");
     source.src = "../" + work.videoPath;

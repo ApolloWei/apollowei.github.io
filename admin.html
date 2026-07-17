@@ -42,16 +42,19 @@
             <label>中文分类说明<input type="text" data-meta-zh placeholder="例如：瑞士 / 稻田" required></label>
             <label>英文分类说明<input type="text" data-meta-en placeholder="Example: Switzerland / Field" required></label>
           </div>
-          <label>地区分类
-            <select data-region required>
-              <option value="europe">欧洲 / Europe</option>
-              <option value="asia">亚洲 / Asia</option>
-              <option value="north-america">北美 / North America</option>
-              <option value="south-america">南美 / South America</option>
-              <option value="africa">非洲 / Africa</option>
-              <option value="oceania">大洋洲 / Oceania</option>
-            </select>
-          </label>
+          <div class="admin-two-cols">
+            <label>地区分类
+              <select data-region required>
+                <option value="europe">欧洲 / Europe</option>
+                <option value="asia">亚洲 / Asia</option>
+                <option value="north-america">北美 / North America</option>
+                <option value="south-america">南美 / South America</option>
+                <option value="africa">非洲 / Africa</option>
+                <option value="oceania">大洋洲 / Oceania</option>
+              </select>
+            </label>
+            <label>拍摄设备<input type="text" data-gear placeholder="例如：DJI Mini 4 Pro" required></label>
+          </div>
           <div class="admin-two-cols">
             <label>中文介绍<textarea data-description-zh rows="5" required></textarea></label>
             <label>英文介绍<textarea data-description-en rows="5" required></textarea></label>
@@ -64,11 +67,14 @@
           <h2>修改视频描述</h2>
           <p class="admin-note">选择已发布的视频，修改中英文介绍后保存。标题、分类和视频文件不会被改动。</p>
           <label>GitHub Token<input type="password" data-edit-token placeholder="ghp_..." autocomplete="off" required></label>
-          <label>选择视频
-            <select data-edit-work required>
-              <option value="">请选择视频</option>
-            </select>
-          </label>
+          <div class="admin-two-cols">
+            <label>选择视频
+              <select data-edit-work required>
+                <option value="">请选择视频</option>
+              </select>
+            </label>
+            <label>拍摄设备<input type="text" data-edit-gear placeholder="例如：DJI Mini 4 Pro" required></label>
+          </div>
           <div class="admin-two-cols">
             <label>中文介绍<textarea data-edit-description-zh rows="5" required></textarea></label>
             <label>英文介绍<textarea data-edit-description-en rows="5" required></textarea></label>
