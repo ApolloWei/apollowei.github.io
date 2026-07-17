@@ -905,3 +905,16 @@ h3 {
     padding: 24px;
   }
 }
+
+.hero-featured-link {
+  color: var(--paper);
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 253, 248, 0.48);
+  transition: border-color 160ms ease, color 160ms ease;
+}
+
+.hero-featured-link:hover,
+.hero-featured-link:focus-visible {
+  color: #f1bf74;
+  border-bottom-color: currentColor;
+}
