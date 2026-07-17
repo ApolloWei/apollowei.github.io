@@ -525,6 +525,13 @@ h3 {
     linear-gradient(25deg, #263d35 0 34%, #6c8272 34% 58%, #d7e2d8 58% 100%);
 }
 
+.thumb.switzerland {
+  background:
+    linear-gradient(120deg, transparent 0 46%, rgba(255, 253, 248, 0.5) 46% 48%, transparent 48%),
+    repeating-linear-gradient(18deg, rgba(255, 253, 248, 0.24) 0 2px, transparent 2px 42px),
+    linear-gradient(145deg, #7f9c70 0%, #d7d2a1 48%, #5f7f68 100%);
+}
+
 .work-card-copy {
   padding: 24px;
 }
