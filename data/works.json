@@ -1,3 +1,22 @@
 {
-  "works": []
+  "works": [
+    {
+      "id": "qiandao-lake-1784294304223",
+      "region": "asia",
+      "title": {
+        "zh": "千岛湖航拍",
+        "en": "Qiandao Lake"
+      },
+      "meta": {
+        "zh": "杭州 / 湖",
+        "en": "Hangzhou / Lake"
+      },
+      "description": {
+        "zh": "这是千岛湖的一段航拍。它使用了一非常高且独特的视角俯瞰千岛湖。站得高看得远，在高处拍摄的千岛湖和坐在船上看到的很不一样。",
+        "en": "This is an aerial photo of Qiandao Lake. It uses a very high and unique perspective to overlook Qiandao Lake. Standing high and looking far, the Qiandao Lake captured from a height is very different from what you see while sitting on a boat."
+      },
+      "videoPath": "assets/videos/qiandao-lake-1784294304223.mp4",
+      "createdAt": "2026-07-17T13:18:29.222Z"
+    }
+  ]
 }
