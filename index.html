@@ -30,7 +30,7 @@
           我是 Apollo，喜欢从高空寻找日常场景里安静、开阔的一面。这里会收集我的航拍视频、照片和每一次飞行背后的观察。
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="#works" data-i18n="home.viewWorks">查看作品</a>
+          <a class="button primary" href="#region-map" data-map-toggle aria-controls="region-map" aria-expanded="false" data-i18n="home.viewWorks">查看作品</a>
           <a class="button secondary" href="#about" data-i18n="home.aboutApollo">了解 Apollo</a>
         </div>
       </div>
@@ -41,6 +41,49 @@
           <span data-i18n="home.latestFlight">Latest Flight</span>
           <strong>Golden Coast 04:32</strong>
         </div>
+      </div>
+    </section>
+
+    <section class="section map-section is-hidden" id="region-map" aria-labelledby="map-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="home.mapEyebrow">Explore by Region</p>
+          <h2 id="map-title" data-i18n="home.mapTitle">按地区查看航拍作品</h2>
+        </div>
+        <p data-i18n="home.mapText">点击地图上的地区标记，进入对应的航拍作品。后续上传真实视频后，可以继续添加新的地点。</p>
+      </div>
+
+      <div class="world-map" aria-label="世界地图作品入口" data-i18n-aria-label="home.mapLabel">
+        <svg viewBox="0 0 1200 620" role="img" aria-hidden="true" focusable="false">
+          <rect width="1200" height="620" class="map-ocean"></rect>
+          <g class="map-grid">
+            <path d="M0 155h1200M0 310h1200M0 465h1200"></path>
+            <path d="M150 0v620M300 0v620M450 0v620M600 0v620M750 0v620M900 0v620M1050 0v620"></path>
+          </g>
+          <g class="map-land-group">
+            <path class="map-land" d="M79 173l49-34 59-20 65-8 57 12 47 24 31 39 18 45-12 34-42 15-48-8-31 11-19 27 12 41-16 34-37 24-48 3-45-22-28-39-35-18-34-42 3-52 26-48z"></path>
+            <path class="map-land" d="M265 356l45 11 35 33 19 51 4 54-22 54-37 34-36-16-27-43-10-58-23-43 5-45 47-32z"></path>
+            <path class="map-land" d="M472 122l70-29 83-12 93 11 69 29 53 13 76-11 72 15 57 34 46 49 23 53-21 45-55 15-52-19-44 9-37 32-7 52-32 34-47-3-31-37-55-9-61 23-62 3-44-25-47 13-48-17-23-47 17-55-31-37-44-19-3-50 28-41z"></path>
+            <path class="map-land" d="M611 285l56-12 55 18 37 43 22 64-6 67-32 62-45 47-41-14-17-59-32-36-23-59 7-63 19-58z"></path>
+            <path class="map-land" d="M921 349l54-14 56 16 46 37 35 47-12 38-49 16-63-7-61-26-34-35 7-42 25-30z"></path>
+            <path class="map-land" d="M504 73l51-40 68-10 58 18 24 38-29 31-70 13-68-4-34-46z"></path>
+            <path class="map-land island" d="M1050 214l24 14 19 27-8 22-32-1-21-20 18-42z"></path>
+            <path class="map-land island" d="M970 277l21 8 7 22-19 16-25-8-5-22 21-16z"></path>
+            <path class="map-land island" d="M846 239l22 5 10 18-15 18-26-6-8-18 17-17z"></path>
+            <path class="map-land island" d="M390 265l20 7 11 19-12 18-24-5-9-19 14-20z"></path>
+            <path class="map-land island" d="M176 324l18 6 7 18-12 15-22-4-8-17 17-18z"></path>
+          </g>
+        </svg>
+
+        <a class="map-pin pin-east-asia" href="work/golden-coast.html" data-map-region>
+          <span data-i18n="home.mapEastAsia">东亚</span>
+        </a>
+        <a class="map-pin pin-north-america" href="work/city-lines.html" data-map-region>
+          <span data-i18n="home.mapNorthAmerica">北美</span>
+        </a>
+        <a class="map-pin pin-europe" href="work/mountain-wind.html" data-map-region>
+          <span data-i18n="home.mapEurope">欧洲</span>
+        </a>
       </div>
     </section>
 

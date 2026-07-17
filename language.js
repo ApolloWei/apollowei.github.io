@@ -31,6 +31,13 @@
         worksEyebrow: "Selected Works",
         worksTitle: "航拍作品",
         worksText: "每个作品都有独立页面，适合放视频、照片组、拍摄地点和简短说明。",
+        mapEyebrow: "Explore by Region",
+        mapTitle: "按地区查看航拍作品",
+        mapText: "点击地图上的地区标记，进入对应的航拍作品。后续上传真实视频后，可以继续添加新的地点。",
+        mapLabel: "世界地图作品入口",
+        mapEastAsia: "东亚",
+        mapNorthAmerica: "北美",
+        mapEurope: "欧洲",
         goldenLabel: "查看 Golden Coast 作品页",
         goldenMeta: "海岸 / 日落",
         goldenText: "低速掠过海岸线，记录城市边缘与潮水的距离。",
@@ -102,6 +109,13 @@
         worksEyebrow: "Selected Works",
         worksTitle: "Aerial Works",
         worksText: "Each work has its own page for video, photo sets, shooting locations, and short notes.",
+        mapEyebrow: "Explore by Region",
+        mapTitle: "Browse Aerial Works by Region",
+        mapText: "Click a region marker on the map to open the matching aerial work. New locations can be added as real videos are uploaded.",
+        mapLabel: "World map entry points for aerial works",
+        mapEastAsia: "East Asia",
+        mapNorthAmerica: "North America",
+        mapEurope: "Europe",
         goldenLabel: "Open Golden Coast work page",
         goldenMeta: "Coast / Sunset",
         goldenText: "A slow pass along the shoreline, tracing the distance between the city edge and the tide.",
@@ -198,6 +212,18 @@
 
   document.querySelectorAll("[data-lang-button]").forEach((button) => {
     button.addEventListener("click", () => applyLanguage(button.dataset.langButton));
+  });
+
+  document.querySelectorAll("[data-map-toggle]").forEach((toggle) => {
+    toggle.addEventListener("click", (event) => {
+      const target = document.querySelector(toggle.getAttribute("href"));
+      if (!target) return;
+
+      event.preventDefault();
+      target.classList.remove("is-hidden");
+      toggle.setAttribute("aria-expanded", "true");
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   });
 
   applyLanguage(initialLanguage);

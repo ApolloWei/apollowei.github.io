@@ -238,8 +238,101 @@ h3 {
   font-size: 13px;
 }
 
+.is-hidden {
+  display: none;
+}
+
 .section {
   padding: 90px 6vw;
+}
+
+.map-section {
+  padding-top: 24px;
+}
+
+.world-map {
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 253, 248, 0.68), transparent 28%),
+    linear-gradient(180deg, #d7e8e8 0%, #c9dcda 100%);
+  box-shadow: var(--shadow);
+}
+
+.world-map svg {
+  display: block;
+  width: 100%;
+  min-height: 520px;
+}
+
+.map-ocean {
+  fill: transparent;
+}
+
+.map-grid path {
+  fill: none;
+  stroke: rgba(47, 111, 115, 0.13);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.map-land {
+  fill: #fffdf8;
+  filter: drop-shadow(0 12px 18px rgba(31, 36, 35, 0.08));
+  stroke: rgba(47, 111, 115, 0.3);
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.map-land.island {
+  stroke-width: 1.5;
+}
+
+.map-pin {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 12px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 14px 34px rgba(31, 36, 35, 0.2);
+  transform: translate(-50%, -50%);
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.map-pin::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--sun);
+  box-shadow: 0 0 0 6px rgba(216, 146, 74, 0.22);
+}
+
+.map-pin:hover {
+  background: var(--accent-dark);
+  transform: translate(-50%, -54%);
+}
+
+.pin-east-asia {
+  left: 82%;
+  top: 43%;
+}
+
+.pin-north-america {
+  left: 25%;
+  top: 40%;
+}
+
+.pin-europe {
+  left: 56%;
+  top: 35%;
 }
 
 .intro {
@@ -471,7 +564,9 @@ h3 {
 
   .hero-visual,
   .media-frame,
-  .media-placeholder {
+  .media-placeholder,
+  .world-map,
+  .world-map svg {
     min-height: 430px;
   }
 
@@ -515,8 +610,16 @@ h3 {
 
   .hero-visual,
   .media-frame,
-  .media-placeholder {
+  .media-placeholder,
+  .world-map,
+  .world-map svg {
     min-height: 340px;
+  }
+
+  .map-pin {
+    min-height: 34px;
+    padding: 0 10px;
+    font-size: 12px;
   }
 
   .hero-caption,
