@@ -26,6 +26,80 @@ body {
   line-height: 1.6;
 }
 
+.gate-body {
+  min-height: 100vh;
+  background:
+    linear-gradient(145deg, rgba(23, 73, 77, 0.12), rgba(216, 146, 74, 0.08)),
+    linear-gradient(180deg, #f7f6f1 0%, #e8efec 100%);
+}
+
+.gate-page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 32px 6vw;
+}
+
+.gate-panel {
+  display: grid;
+  gap: 28px;
+  width: min(100%, 520px);
+  padding: 42px;
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.88);
+  box-shadow: var(--shadow);
+}
+
+.gate-panel h1 {
+  margin-bottom: 18px;
+  font-size: clamp(38px, 7vw, 64px);
+}
+
+.gate-text {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.gate-form {
+  display: grid;
+  gap: 12px;
+}
+
+.gate-form label {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.gate-form input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 18px;
+}
+
+.gate-form input:focus {
+  border-color: var(--accent);
+  outline: 2px solid rgba(47, 111, 115, 0.18);
+  outline-offset: 0;
+}
+
+.gate-error {
+  margin: 0;
+  color: #9b342d;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.gate-language {
+  justify-self: start;
+}
+
 a {
   color: inherit;
   text-decoration: none;

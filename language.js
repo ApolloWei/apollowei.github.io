@@ -3,6 +3,7 @@
     zh: {
       meta: {
         homeDescription: "Apollo 的个人航拍影像网站，展示城市、海岸与山野视角。",
+        gateDescription: "Apollo 航拍影像网站访问入口。",
         goldenDescription: "Apollo 航拍作品 Golden Coast。",
         cityDescription: "Apollo 航拍作品 City Lines。",
         mountainDescription: "Apollo 航拍作品 Mountain Wind。",
@@ -17,6 +18,14 @@
       },
       language: {
         switchLabel: "语言切换"
+      },
+      gate: {
+        eyebrow: "Private Portfolio",
+        title: "Apollo 航拍大厅",
+        text: "请输入访问密码，进入作品大厅和视频页面。",
+        passwordLabel: "访问密码",
+        error: "密码不正确，请再试一次。",
+        enter: "进入大厅"
       },
       home: {
         heroEyebrow: "Aerial Video Portfolio",
@@ -99,6 +108,7 @@
     en: {
       meta: {
         homeDescription: "Apollo's personal aerial video portfolio, featuring city, coast, and mountain perspectives.",
+        gateDescription: "Private access entrance for Apollo's aerial video portfolio.",
         goldenDescription: "Apollo aerial work: Golden Coast.",
         cityDescription: "Apollo aerial work: City Lines.",
         mountainDescription: "Apollo aerial work: Mountain Wind.",
@@ -113,6 +123,14 @@
       },
       language: {
         switchLabel: "Language switch"
+      },
+      gate: {
+        eyebrow: "Private Portfolio",
+        title: "Apollo Aerial Hall",
+        text: "Enter the access password to open the hall and video pages.",
+        passwordLabel: "Access Password",
+        error: "Incorrect password. Please try again.",
+        enter: "Enter Hall"
       },
       home: {
         heroEyebrow: "Aerial Video Portfolio",

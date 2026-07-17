@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apollo 的个人航拍影像网站，展示城市、海岸与山野视角。" data-i18n-content="meta.homeDescription">
+  <title>Apollo | Aerial Stories</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>window.APOLLO_PROTECTED = true;</script>
+  <script src="auth.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="hall.html" aria-label="Apollo 主页" data-i18n-aria-label="nav.homeLabel">Apollo</a>
+    <nav class="nav" aria-label="主导航" data-i18n-aria-label="nav.label">
+      <a href="#works" data-i18n="nav.works">作品</a>
+      <a href="#about" data-i18n="nav.about">关于</a>
+      <a href="#contact" data-i18n="nav.contact">联系</a>
+      <div class="language-switch" aria-label="语言切换" data-i18n-aria-label="language.switchLabel">
+        <button type="button" data-lang-button="zh">中文</button>
+        <button type="button" data-lang-button="en">EN</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="home.heroEyebrow">Aerial Video Portfolio</p>
+        <h1 id="hero-title" data-i18n="home.heroTitle">用航拍记录城市、海岸和山野的呼吸。</h1>
+        <p class="hero-text" data-i18n="home.heroText">
+          我是 Apollo，喜欢从高空寻找日常场景里安静、开阔的一面。这里会收集我的航拍视频、照片和每一次飞行背后的观察。
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#region-map" data-map-toggle aria-controls="region-map" aria-expanded="false" data-i18n="home.viewWorks">查看作品</a>
+          <a class="button secondary" href="#about" data-i18n="home.aboutApollo">了解 Apollo</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="航拍影像预览" data-i18n-aria-label="home.heroVisualLabel">
+        <div class="skyline"></div>
+        <div class="flight-path"></div>
+        <div class="hero-caption">
+          <span data-i18n="home.latestFlight">Latest Flight</span>
+          <strong>Golden Coast 04:32</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section map-section is-hidden" id="region-map" aria-labelledby="map-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="home.mapEyebrow">Explore by Region</p>
+          <h2 id="map-title" data-i18n="home.mapTitle">按地区查看航拍作品</h2>
+        </div>
+        <p data-i18n="home.mapText">点击地图上的洲或地区标记，先查看该地区的作品列表，再进入具体视频。</p>
+      </div>
+
+      <div class="world-map" aria-label="世界地图作品入口" data-i18n-aria-label="home.mapLabel">
+        <svg viewBox="0 0 1200 620" role="img" aria-hidden="true" focusable="false">
+          <rect width="1200" height="620" class="map-ocean"></rect>
+          <g class="map-grid">
+            <path d="M0 155h1200M0 310h1200M0 465h1200"></path>
+            <path d="M150 0v620M300 0v620M450 0v620M600 0v620M750 0v620M900 0v620M1050 0v620"></path>
+          </g>
+          <g class="map-land-group">
+            <path class="map-land" d="M79 173l49-34 59-20 65-8 57 12 47 24 31 39 18 45-12 34-42 15-48-8-31 11-19 27 12 41-16 34-37 24-48 3-45-22-28-39-35-18-34-42 3-52 26-48z"></path>
+            <path class="map-land" d="M265 356l45 11 35 33 19 51 4 54-22 54-37 34-36-16-27-43-10-58-23-43 5-45 47-32z"></path>
+            <path class="map-land" d="M472 122l70-29 83-12 93 11 69 29 53 13 76-11 72 15 57 34 46 49 23 53-21 45-55 15-52-19-44 9-37 32-7 52-32 34-47-3-31-37-55-9-61 23-62 3-44-25-47 13-48-17-23-47 17-55-31-37-44-19-3-50 28-41z"></path>
+            <path class="map-land" d="M611 285l56-12 55 18 37 43 22 64-6 67-32 62-45 47-41-14-17-59-32-36-23-59 7-63 19-58z"></path>
+            <path class="map-land" d="M921 349l54-14 56 16 46 37 35 47-12 38-49 16-63-7-61-26-34-35 7-42 25-30z"></path>
+            <path class="map-land" d="M504 73l51-40 68-10 58 18 24 38-29 31-70 13-68-4-34-46z"></path>
+            <path class="map-land island" d="M1050 214l24 14 19 27-8 22-32-1-21-20 18-42z"></path>
+            <path class="map-land island" d="M970 277l21 8 7 22-19 16-25-8-5-22 21-16z"></path>
+            <path class="map-land island" d="M846 239l22 5 10 18-15 18-26-6-8-18 17-17z"></path>
+            <path class="map-land island" d="M390 265l20 7 11 19-12 18-24-5-9-19 14-20z"></path>
+            <path class="map-land island" d="M176 324l18 6 7 18-12 15-22-4-8-17 17-18z"></path>
+          </g>
+        </svg>
+
+        <a class="map-pin pin-east-asia" href="#region-asia" data-map-region>
+          <span data-i18n="home.mapEastAsia">亚洲</span>
+        </a>
+        <a class="map-pin pin-north-america" href="#region-north-america" data-map-region>
+          <span data-i18n="home.mapNorthAmerica">北美</span>
+        </a>
+        <a class="map-pin pin-europe" href="#region-europe" data-map-region>
+          <span data-i18n="home.mapEurope">欧洲</span>
+        </a>
+      </div>
+
+      <div class="region-lists" aria-label="地区作品列表" data-i18n-aria-label="home.regionListsLabel">
+        <section class="region-panel" id="region-asia" aria-labelledby="region-asia-title">
+          <div>
+            <p class="eyebrow" data-i18n="home.regionAsiaEyebrow">Asia</p>
+            <h3 id="region-asia-title" data-i18n="home.regionAsiaTitle">亚洲作品</h3>
+          </div>
+          <a class="region-item" href="work/golden-coast.html">
+            <span data-i18n="home.goldenMeta">海岸 / 日落</span>
+            <strong>Golden Coast</strong>
+          </a>
+        </section>
+
+        <section class="region-panel" id="region-north-america" aria-labelledby="region-north-america-title">
+          <div>
+            <p class="eyebrow" data-i18n="home.regionNorthAmericaEyebrow">North America</p>
+            <h3 id="region-north-america-title" data-i18n="home.regionNorthAmericaTitle">北美作品</h3>
+          </div>
+          <a class="region-item" href="work/city-lines.html">
+            <span data-i18n="home.cityMeta">城市 / 几何</span>
+            <strong>City Lines</strong>
+          </a>
+        </section>
+
+        <section class="region-panel" id="region-europe" aria-labelledby="region-europe-title">
+          <div>
+            <p class="eyebrow" data-i18n="home.regionEuropeEyebrow">Europe</p>
+            <h3 id="region-europe-title" data-i18n="home.regionEuropeTitle">欧洲作品</h3>
+          </div>
+          <a class="region-item featured" href="work/switzerland-field.html">
+            <span data-i18n="home.switzerlandMeta">瑞士 / 稻田</span>
+            <strong data-i18n="home.switzerlandTitle">瑞士·稻田</strong>
+          </a>
+          <a class="region-item" href="work/mountain-wind.html">
+            <span data-i18n="home.mountainMeta">山野 / 清晨</span>
+            <strong>Mountain Wind</strong>
+          </a>
+        </section>
+      </div>
+    </section>
+
+    <section class="section intro" id="about" aria-labelledby="about-title">
+      <div>
+        <p class="eyebrow" data-i18n="home.aboutEyebrow">About</p>
+        <h2 id="about-title" data-i18n="home.aboutTitle">Apollo 的影像笔记</h2>
+      </div>
+      <p data-i18n="home.aboutText">
+        我关注光线、地形、建筑与人的活动痕迹。航拍对我来说不是炫技，而是一种换个高度理解世界的方式。这个网站先作为作品集框架，后续可以继续加入真实视频、拍摄参数、地点故事和项目合作信息。
+      </p>
+    </section>
+
+    <section class="section" id="works" aria-labelledby="works-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="home.worksEyebrow">Selected Works</p>
+          <h2 id="works-title" data-i18n="home.worksTitle">航拍作品</h2>
+        </div>
+        <p data-i18n="home.worksText">每个作品都有独立页面，适合放视频、照片组、拍摄地点和简短说明。</p>
+      </div>
+
+      <div class="work-grid">
+        <article class="work-card">
+          <a href="work/golden-coast.html" aria-label="查看 Golden Coast 作品页" data-i18n-aria-label="home.goldenLabel">
+            <div class="thumb coast"></div>
+            <div class="work-card-copy">
+              <span data-i18n="home.goldenMeta">海岸 / 日落</span>
+              <h3>Golden Coast</h3>
+              <p data-i18n="home.goldenText">低速掠过海岸线，记录城市边缘与潮水的距离。</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="work-card">
+          <a href="work/city-lines.html" aria-label="查看 City Lines 作品页" data-i18n-aria-label="home.cityLabel">
+            <div class="thumb city"></div>
+            <div class="work-card-copy">
+              <span data-i18n="home.cityMeta">城市 / 几何</span>
+              <h3>City Lines</h3>
+              <p data-i18n="home.cityText">从高空看道路、楼群与光影交错形成的秩序。</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="work-card">
+          <a href="work/mountain-wind.html" aria-label="查看 Mountain Wind 作品页" data-i18n-aria-label="home.mountainLabel">
+            <div class="thumb mountain"></div>
+            <div class="work-card-copy">
+              <span data-i18n="home.mountainMeta">山野 / 清晨</span>
+              <h3>Mountain Wind</h3>
+              <p data-i18n="home.mountainText">沿山脊飞行，捕捉晨雾和风穿过地形的层次。</p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div>
+        <p class="eyebrow" data-i18n="home.contactEyebrow">Contact</p>
+        <h2 id="contact-title" data-i18n="home.contactTitle">一起看更高一点的世界</h2>
+      </div>
+      <a class="button primary" href="mailto:apollo@example.com">apollo@example.com</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 Apollo</span>
+    <span data-i18n="footer.tagline">Aerial video portfolio</span>
+  </footer>
+  <script src="language.js"></script>
+</body>
+</html>
