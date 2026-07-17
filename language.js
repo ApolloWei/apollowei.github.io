@@ -14,7 +14,8 @@
         homeLabel: "Apollo 主页",
         works: "作品",
         about: "关于",
-        contact: "联系"
+        contact: "联系",
+        admin: "我是管理者"
       },
       language: {
         switchLabel: "语言切换"
@@ -119,7 +120,8 @@
         homeLabel: "Apollo home",
         works: "Works",
         about: "About",
-        contact: "Contact"
+        contact: "Contact",
+        admin: "Manager"
       },
       language: {
         switchLabel: "Language switch"

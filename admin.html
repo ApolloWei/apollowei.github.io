@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apollo 航拍作品管理入口。">
+  <title>Apollo | Admin</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+  <header class="site-header">
+    <a class="brand" href="hall.html">Apollo</a>
+    <nav class="nav" aria-label="管理导航"><a href="hall.html#works">返回大厅</a></nav>
+  </header>
+  <main class="admin-page">
+    <section class="admin-lock" data-admin-lock>
+      <p class="eyebrow">Manager Access</p>
+      <h1>管理者入口</h1>
+      <p>请输入管理者密码，进入视频上传与分类管理。</p>
+      <form class="gate-form" data-admin-login>
+        <label for="admin-password">管理者密码</label>
+        <input id="admin-password" type="password" autocomplete="current-password" data-admin-password required>
+        <p class="gate-error" data-admin-error hidden>密码不正确，请再试一次。</p>
+        <button class="button primary" type="submit">进入管理层面</button>
+      </form>
+    </section>
+    <section class="admin-panel is-hidden" data-admin-panel>
+      <div class="section-heading admin-heading">
+        <div><p class="eyebrow">Video Manager</p><h1>作品管理</h1></div>
+        <a class="button secondary" href="hall.html#works">返回大厅</a>
+      </div>
+      <div class="admin-grid">
+        <form class="admin-card admin-form" data-upload-form>
+          <h2>上传新视频</h2>
+          <p class="admin-note">需要一个只在本次操作中使用的 GitHub Token，权限选择 Contents: Read and write。Token 不会写进网站代码。</p>
+          <label>GitHub Token<input type="password" data-token placeholder="ghp_..." autocomplete="off" required></label>
+          <div class="admin-two-cols">
+            <label>中文标题<input type="text" data-title-zh placeholder="例如：瑞士·稻田" required></label>
+            <label>英文标题<input type="text" data-title-en placeholder="Example: Switzerland Field" required></label>
+          </div>
+          <div class="admin-two-cols">
+            <label>中文分类说明<input type="text" data-meta-zh placeholder="例如：瑞士 / 稻田" required></label>
+            <label>英文分类说明<input type="text" data-meta-en placeholder="Example: Switzerland / Field" required></label>
+          </div>
+          <label>地区分类
+            <select data-region required>
+              <option value="europe">欧洲 / Europe</option>
+              <option value="asia">亚洲 / Asia</option>
+              <option value="north-america">北美 / North America</option>
+              <option value="south-america">南美 / South America</option>
+              <option value="africa">非洲 / Africa</option>
+              <option value="oceania">大洋洲 / Oceania</option>
+            </select>
+          </label>
+          <div class="admin-two-cols">
+            <label>中文介绍<textarea data-description-zh rows="5" required></textarea></label>
+            <label>英文介绍<textarea data-description-en rows="5" required></textarea></label>
+          </div>
+          <label>视频文件 MP4，需小于 95MB<input type="file" data-video-file accept="video/mp4,video/*" required></label>
+          <button class="button primary" type="submit">上传并发布</button>
+          <p class="admin-status" data-upload-status></p>
+        </form>
+        <section class="admin-card">
+          <h2>删除已上传视频</h2>
+          <p class="admin-note">这里管理的是通过本页面上传到动态列表的视频。删除会同时更新作品列表，并尝试删除仓库中的视频文件。</p>
+          <label>GitHub Token<input type="password" data-delete-token placeholder="ghp_..." autocomplete="off"></label>
+          <div class="admin-list" data-admin-list></div>
+          <p class="admin-status" data-delete-status></p>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="admin.js"></script>
+</body>
+</html>

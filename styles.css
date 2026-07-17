@@ -770,3 +770,138 @@ h3 {
     flex-direction: column;
   }
 }
+
+.manager-link {
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+.admin-body {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.admin-page {
+  padding: 56px 6vw 90px;
+}
+
+.admin-lock {
+  display: grid;
+  gap: 20px;
+  width: min(100%, 520px);
+  margin: 8vh auto 0;
+  padding: 42px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.admin-lock h1,
+.admin-panel h1 {
+  margin-bottom: 0;
+  font-size: clamp(36px, 6vw, 64px);
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+  gap: 22px;
+}
+
+.admin-card {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.admin-card h2 {
+  margin-bottom: 0;
+  font-size: 28px;
+}
+
+.admin-card label {
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.admin-card input,
+.admin-card select,
+.admin-card textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+}
+
+.admin-card textarea {
+  resize: vertical;
+}
+
+.admin-two-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.admin-note,
+.admin-status {
+  margin: 0;
+  color: var(--muted);
+}
+
+.admin-status {
+  font-weight: 700;
+}
+
+.admin-list {
+  display: grid;
+  gap: 12px;
+}
+
+.admin-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  background: rgba(247, 246, 241, 0.72);
+}
+
+.admin-list-item div {
+  display: grid;
+  gap: 4px;
+}
+
+.admin-list-item span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.thumb.video-thumb {
+  background:
+    linear-gradient(135deg, rgba(255, 253, 248, 0.34) 0 1px, transparent 1px 58px),
+    linear-gradient(145deg, #17494d, #8ca49d 58%, #d8924a);
+}
+
+@media (max-width: 900px) {
+  .admin-grid,
+  .admin-two-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-lock,
+  .admin-card {
+    padding: 24px;
+  }
+}

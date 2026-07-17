@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apollo 航拍作品。">
+  <title>Apollo | Video</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script>window.APOLLO_PROTECTED = true;</script>
+  <script src="../auth.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../hall.html">Apollo</a>
+    <nav class="nav" aria-label="主导航">
+      <a href="../hall.html#works">作品</a><a href="../hall.html#about">关于</a><a href="../hall.html#contact">联系</a><a class="manager-link" href="../admin.html">我是管理者</a>
+    </nav>
+  </header>
+  <main class="work-page">
+    <section class="work-hero">
+      <div>
+        <p class="eyebrow">Aerial Work</p><h1 data-video-title>作品加载中</h1>
+        <div class="work-meta"><span data-video-region></span><span data-video-meta></span></div>
+        <div class="page-actions"><a class="button primary" href="../hall.html#works" data-back-link>返回作品</a><a class="button secondary" href="mailto:apollo@example.com">联系 Apollo</a></div>
+      </div>
+      <div class="media-frame video-frame"><video class="work-video" controls preload="metadata" playsinline data-video-player></video></div>
+    </section>
+    <section class="story-grid"><dl><div><dt>地区</dt><dd data-video-region-detail></dd></div><div><dt>状态</dt><dd>真实视频</dd></div></dl><div class="story-text"><p data-video-description></p></div></section>
+  </main>
+  <script src="../video-page.js"></script>
+</body>
+</html>
