@@ -925,3 +925,18 @@ h3 {
   color: #f1bf74;
   border-bottom-color: currentColor;
 }
+
+.admin-card .admin-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.admin-card .admin-check input {
+  width: 16px;
+  min-height: 16px;
+  padding: 0;
+}
