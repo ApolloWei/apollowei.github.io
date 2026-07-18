@@ -105,6 +105,10 @@
         switzerlandStory1: "这段视频拍摄于瑞士，记录稻田与地形在高空视角下形成的纹理。",
         switzerlandStory2: "后续可以继续补充具体地点、拍摄时间、飞行路线和设备参数。"
       },
+      comments: {
+        eyebrow: "Comments",
+        title: "留言评价"
+      },
       footer: {
         tagline: "Aerial video portfolio"
       }
@@ -213,6 +217,10 @@
         realVideo: "Real video",
         switzerlandStory1: "This video was filmed in Switzerland, capturing the texture of fields and terrain from above.",
         switzerlandStory2: "Later, this page can include the exact location, shooting time, flight route, and gear details."
+      },
+      comments: {
+        eyebrow: "Comments",
+        title: "Comments"
       },
       footer: {
         tagline: "Aerial video portfolio"

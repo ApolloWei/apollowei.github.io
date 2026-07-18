@@ -940,3 +940,22 @@ h3 {
   min-height: 16px;
   padding: 0;
 }
+
+.comments-section {
+  display: grid;
+  gap: 16px;
+  margin-top: 64px;
+  padding-top: 44px;
+  border-top: 1px solid var(--line);
+}
+
+.comments-section h2 {
+  font-size: clamp(28px, 4vw, 42px);
+}
+
+.comments-box {
+  min-height: 180px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
