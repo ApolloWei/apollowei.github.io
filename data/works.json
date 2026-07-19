@@ -55,6 +55,25 @@
       "gear": "DJI Mini 3 Pro",
       "videoPath": "assets/videos/mount-rigi-1784433729040.mp4",
       "createdAt": "2026-07-19T04:02:15.523Z"
+    },
+    {
+      "id": "longli-bridge-1784434650143",
+      "region": "asia",
+      "title": {
+        "zh": "龙里大桥",
+        "en": "Longli Bridge"
+      },
+      "meta": {
+        "zh": "中国 / 大桥",
+        "en": "China / Bridge"
+      },
+      "description": {
+        "zh": "这段视频拍摄于贵州龙里大桥，这个桥是世界首座车行道与玻璃步道共桥面的高山峡谷景观桥‌，非常震撼、壮观。",
+        "en": "This video was filmed on the Longli Bridge in Guizhou, which is the world's first high mountain canyon landscape bridge with a shared roadway and glass walkway. It is very stunning and spectacular."
+      },
+      "gear": "DJI Mini 3 Pro",
+      "videoPath": "assets/videos/longli-bridge-1784434650143.mp4",
+      "createdAt": "2026-07-19T04:17:33.807Z"
     }
   ]
 }
