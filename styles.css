@@ -1373,3 +1373,46 @@ body {
   background: var(--paper);
   box-shadow: 0 0 0 7px rgba(255, 253, 248, 0.24);
 }
+
+.work-search {
+  display: grid;
+  gap: 8px;
+  width: min(100%, 360px);
+}
+
+.work-search label {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.work-search input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 16px;
+  border: 1px solid rgba(222, 219, 210, 0.9);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.82);
+  color: var(--ink);
+  font: inherit;
+  box-shadow: 0 12px 28px rgba(31, 36, 35, 0.07);
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.work-search input:focus {
+  border-color: var(--accent);
+  background: var(--paper);
+  box-shadow: 0 0 0 4px rgba(47, 111, 115, 0.13), 0 16px 34px rgba(31, 36, 35, 0.1);
+  outline: 0;
+}
+
+.work-card.is-search-hidden {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .work-search {
+    width: 100%;
+  }
+}

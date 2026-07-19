@@ -145,6 +145,10 @@
           <p class="eyebrow" data-i18n="home.worksEyebrow">Selected Works</p>
           <h2 id="works-title" data-i18n="home.worksTitle">航拍作品</h2>
         </div>
+        <form class="work-search" role="search" aria-label="搜索作品" data-i18n-aria-label="home.searchLabel">
+          <label for="work-search-input" data-i18n="home.searchLabel">搜索作品</label>
+          <input id="work-search-input" type="search" placeholder="输入作品名称" autocomplete="off" data-work-search data-i18n-placeholder="home.searchPlaceholder">
+        </form>
         <p data-i18n="home.worksText">每个作品都有独立页面，适合放视频、照片组、拍摄地点和简短说明。</p>
       </div>
 
@@ -212,5 +216,6 @@
   </footer>
   <script src="language.js"></script>
   <script src="catalog.js"></script>
+  <script src="works-search.js"></script>
 </body>
 </html>

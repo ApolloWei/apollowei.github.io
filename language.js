@@ -43,6 +43,8 @@
         worksEyebrow: "Selected Works",
         worksTitle: "航拍作品",
         worksText: "每个作品都有独立页面，适合放视频、照片组、拍摄地点和简短说明。",
+        searchLabel: "搜索作品",
+        searchPlaceholder: "输入作品名称",
         mapEyebrow: "Explore by Region",
         mapTitle: "按地区查看航拍作品",
         mapText: "点击地图上的洲或地区标记，先查看该地区的作品列表，再进入具体视频。",
@@ -156,6 +158,8 @@
         worksEyebrow: "Selected Works",
         worksTitle: "Aerial Works",
         worksText: "Each work has its own page for video, photo sets, shooting locations, and short notes.",
+        searchLabel: "Search works",
+        searchPlaceholder: "Search by title",
         mapEyebrow: "Explore by Region",
         mapTitle: "Browse Aerial Works by Region",
         mapText: "Click a continent or region marker on the map, browse that region's list, then open a specific video.",
@@ -269,6 +273,11 @@
     document.querySelectorAll("[data-i18n-content]").forEach((element) => {
       const value = valueFor(element.dataset.i18nContent, language);
       if (value) element.setAttribute("content", value);
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+      const value = valueFor(element.dataset.i18nPlaceholder, language);
+      if (value) element.setAttribute("placeholder", value);
     });
 
     document.querySelectorAll("[data-lang-button]").forEach((button) => {
