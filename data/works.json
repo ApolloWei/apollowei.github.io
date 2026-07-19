@@ -74,6 +74,25 @@
       "gear": "DJI Mini 3 Pro",
       "videoPath": "assets/videos/longli-bridge-1784434650143.mp4",
       "createdAt": "2026-07-19T04:17:33.807Z"
+    },
+    {
+      "id": "guizhou-s-field-1784438684417",
+      "region": "asia",
+      "title": {
+        "zh": "贵州·稻田",
+        "en": "Guizhou's Field"
+      },
+      "meta": {
+        "zh": "中国 / 稻田",
+        "en": "China / Field"
+      },
+      "description": {
+        "zh": "这是在2024年位于贵州贵阳市拍摄的一段视频。拍摄出了出了贵州乡村的自然风光。",
+        "en": "This is a video filmed in Guiyang, Guizhou in 2024. We captured the natural scenery of rural Guizhou."
+      },
+      "gear": "DJI Mini 3 Pro",
+      "videoPath": "assets/videos/guizhou-s-field-1784438684417.mp4",
+      "createdAt": "2026-07-19T05:24:52.688Z"
     }
   ]
 }
