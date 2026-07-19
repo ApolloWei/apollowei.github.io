@@ -35,14 +35,51 @@
   function renderWorkCard(work) {
     const article = document.createElement("article");
     article.className = "work-card dynamic-work";
-    article.innerHTML = '<a><div class="thumb video-thumb"></div><div class="work-card-copy"><span></span><h3></h3><p></p></div></a>';
+    article.innerHTML = '<a><div class="thumb video-preview"><video muted loop playsinline preload="metadata" data-preview-video></video></div><div class="work-card-copy"><span></span><h3></h3><p></p></div></a>';
     const link = article.querySelector("a");
     link.href = "work/video.html?id=" + encodeURIComponent(work.id);
     link.setAttribute("aria-label", text(work.title));
     article.querySelector("span").textContent = text(work.meta);
     article.querySelector("h3").textContent = text(work.title);
     article.querySelector("p").textContent = text(work.description);
+    const previewVideo = article.querySelector("[data-preview-video]");
+    if (previewVideo && work.videoPath) {
+      const source = document.createElement("source");
+      source.src = work.videoPath;
+      source.type = "video/mp4";
+      previewVideo.appendChild(source);
+      previewVideo.load();
+    }
     return article;
+  }
+  function setupPreviewVideos() {
+    document.querySelectorAll("[data-preview-video]").forEach((video) => {
+      if (video.dataset.previewReady) return;
+      const card = video.closest(".work-card");
+      if (!card) return;
+
+      video.dataset.previewReady = "true";
+      video.muted = true;
+      video.addEventListener("loadedmetadata", () => {
+        video.currentTime = 0;
+      }, { once: true });
+
+      function playPreview() {
+        video.classList.add("is-playing");
+        video.play().catch(() => {});
+      }
+
+      function resetPreview() {
+        video.pause();
+        video.currentTime = 0;
+        video.classList.remove("is-playing");
+      }
+
+      card.addEventListener("mouseenter", playPreview);
+      card.addEventListener("focusin", playPreview);
+      card.addEventListener("mouseleave", resetPreview);
+      card.addEventListener("focusout", resetPreview);
+    });
   }
   function newestWork() {
     return works.slice().sort((a, b) => Date.parse(b.createdAt || "") - Date.parse(a.createdAt || ""))[0] || null;
@@ -80,9 +117,11 @@
       if (grid) grid.appendChild(renderWorkCard(work));
     });
     updateFeaturedHero();
+    setupPreviewVideos();
     if (window.apolloApplyRegionFilter) window.apolloApplyRegionFilter();
     if (window.apolloApplyWorkSearch) window.apolloApplyWorkSearch();
   }
+  setupPreviewVideos();
   fetch("data/works.json", { cache: "no-store" }).then((response) => response.ok ? response.json() : { works: [] }).then((catalog) => {
     works = Array.isArray(catalog.works) ? catalog.works : [];
     render();
