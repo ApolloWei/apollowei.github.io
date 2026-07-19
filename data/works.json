@@ -36,6 +36,25 @@
       },
       "videoPath": "assets/videos/hangzhou-little-lighthouse-1784295162123.mp4",
       "createdAt": "2026-07-17T13:32:49.907Z"
+    },
+    {
+      "id": "mount-rigi-1784433729040",
+      "region": "europe",
+      "title": {
+        "zh": "瑞吉山",
+        "en": "Mount Rigi"
+      },
+      "meta": {
+        "zh": "瑞士 / 山",
+        "en": "Switzerland / Mountain"
+      },
+      "description": {
+        "zh": "这段视频是在瑞士的瑞吉山拍摄的，从山坡到断崖，下方就是湖泊是瑞吉山独有的壮观景色。",
+        "en": "This video was filmed on Mount Riji, where from the slopes to the cliffs, the lake below is a spectacular scenery unique to Riji Mountain."
+      },
+      "gear": "DJI Mini 3 Pro",
+      "videoPath": "assets/videos/mount-rigi-1784433729040.mp4",
+      "createdAt": "2026-07-19T04:02:15.523Z"
     }
   ]
 }
