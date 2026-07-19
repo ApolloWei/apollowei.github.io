@@ -44,6 +44,33 @@
     article.querySelector("p").textContent = text(work.description);
     return article;
   }
+  function newestWork() {
+    return works.slice().sort((a, b) => Date.parse(b.createdAt || "") - Date.parse(a.createdAt || ""))[0] || null;
+  }
+  function updateFeaturedHero() {
+    const work = newestWork();
+    const hero = document.querySelector("[data-featured-hero]");
+    const title = document.querySelector("[data-featured-title]");
+    const video = document.querySelector("[data-featured-video]");
+    if (!work || !hero || !title) return;
+
+    hero.href = "work/video.html?id=" + encodeURIComponent(work.id);
+    hero.setAttribute("aria-label", text(work.title));
+    title.removeAttribute("data-i18n");
+    title.textContent = text(work.title);
+
+    if (!video || !work.videoPath) return;
+    const source = video.querySelector("source") || document.createElement("source");
+    const src = work.videoPath;
+    if (source.getAttribute("src") !== src) {
+      source.src = src;
+      source.type = "video/mp4";
+      if (!source.parentNode) video.appendChild(source);
+      video.load();
+    }
+    video.classList.add("is-ready");
+    video.play().catch(() => {});
+  }
   function render() {
     document.querySelectorAll(".dynamic-work").forEach((node) => node.remove());
     works.forEach((work) => {
@@ -52,6 +79,7 @@
       const grid = document.querySelector(".work-grid");
       if (grid) grid.appendChild(renderWorkCard(work));
     });
+    updateFeaturedHero();
     if (window.apolloApplyRegionFilter) window.apolloApplyRegionFilter();
     if (window.apolloApplyWorkSearch) window.apolloApplyWorkSearch();
   }
