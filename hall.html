@@ -33,7 +33,13 @@
           我是 Apollo，喜欢从高空寻找日常场景里安静、开阔的一面。这里会收集我的航拍视频、照片和每一次飞行背后的观察。
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="#region-map" data-map-toggle aria-controls="region-map" aria-expanded="false" data-i18n="home.viewWorks">查看作品</a>
+          <div class="work-choice" data-work-choice>
+            <button class="button primary" type="button" aria-expanded="false" aria-haspopup="menu" aria-controls="work-choice-menu" data-work-choice-toggle data-i18n="home.viewWorks">查看作品</button>
+            <div class="work-choice-menu" id="work-choice-menu" role="menu" data-work-choice-menu hidden>
+              <a href="#works" role="menuitem" data-work-choice-all data-i18n="home.browseAllVideos">浏览所有视频</a>
+              <a href="#region-map" role="menuitem" data-map-toggle data-work-choice-region aria-controls="region-map" aria-expanded="false" data-i18n="home.browseByRegion">按地区浏览</a>
+            </div>
+          </div>
           <a class="button secondary" href="#about" data-i18n="home.aboutApollo">了解 Apollo</a>
         </div>
       </div>

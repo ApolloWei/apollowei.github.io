@@ -33,6 +33,8 @@
         heroTitle: "用航拍记录城市、海岸和山野的呼吸。",
         heroText: "我是 Apollo，喜欢从高空寻找日常场景里安静、开阔的一面。这里会收集我的航拍视频、照片和每一次飞行背后的观察。",
         viewWorks: "查看作品",
+        browseAllVideos: "浏览所有视频",
+        browseByRegion: "按地区浏览",
         aboutApollo: "了解 Apollo",
         heroVisualLabel: "航拍影像预览",
         latestFlight: "Latest Flight",
@@ -148,6 +150,8 @@
         heroTitle: "Aerial stories of cities, coastlines, and quiet mountain air.",
         heroText: "I am Apollo. I use drone footage to look for the calm, open side of everyday places. This site collects my aerial videos, photos, and notes from each flight.",
         viewWorks: "View Works",
+        browseAllVideos: "Browse All Videos",
+        browseByRegion: "Browse by Region",
         aboutApollo: "About Apollo",
         heroVisualLabel: "Aerial video preview",
         latestFlight: "Latest Flight",
@@ -319,17 +323,53 @@
     button.addEventListener("click", () => applyLanguage(button.dataset.langButton));
   });
 
+  function openRegionMap(toggle) {
+    const target = document.querySelector(toggle.getAttribute("href"));
+    if (!target) return false;
+
+    target.classList.remove("is-hidden");
+    document.querySelectorAll("[data-map-toggle]").forEach((item) => item.setAttribute("aria-expanded", "true"));
+    applyRegionFilter("");
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    return true;
+  }
+
   document.querySelectorAll("[data-map-toggle]").forEach((toggle) => {
     toggle.addEventListener("click", (event) => {
-      const target = document.querySelector(toggle.getAttribute("href"));
-      if (!target) return;
-
       event.preventDefault();
-      target.classList.remove("is-hidden");
-      toggle.setAttribute("aria-expanded", "true");
-      applyRegionFilter("");
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      openRegionMap(toggle);
+      closeWorkChoiceMenu();
     });
+  });
+
+  function closeWorkChoiceMenu() {
+    const menu = document.querySelector("[data-work-choice-menu]");
+    const toggle = document.querySelector("[data-work-choice-toggle]");
+    if (!menu || !toggle) return;
+    menu.hidden = true;
+    toggle.setAttribute("aria-expanded", "false");
+  }
+
+  const workChoiceToggle = document.querySelector("[data-work-choice-toggle]");
+  const workChoiceMenu = document.querySelector("[data-work-choice-menu]");
+  if (workChoiceToggle && workChoiceMenu) {
+    workChoiceToggle.addEventListener("click", () => {
+      const isOpening = workChoiceMenu.hidden;
+      workChoiceMenu.hidden = !isOpening;
+      workChoiceToggle.setAttribute("aria-expanded", String(isOpening));
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest("[data-work-choice]")) closeWorkChoiceMenu();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeWorkChoiceMenu();
+    });
+  }
+
+  document.querySelectorAll("[data-work-choice-all]").forEach((link) => {
+    link.addEventListener("click", () => closeWorkChoiceMenu());
   });
 
   document.querySelectorAll("[data-map-region]").forEach((pin) => {
