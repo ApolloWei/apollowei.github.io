@@ -280,6 +280,32 @@
     storage.set(language);
   }
 
+  function selectedRegionFromHash() {
+    return location.hash && location.hash !== "#region-map" && location.hash.indexOf("#region-") === 0 ? location.hash.slice(1) : "";
+  }
+
+  function applyRegionFilter(regionId) {
+    const selectedRegion = typeof regionId === "string" ? regionId : selectedRegionFromHash();
+    const panels = document.querySelectorAll(".region-panel");
+    const lists = document.querySelector(".region-lists");
+
+    panels.forEach((panel) => {
+      const shouldHide = Boolean(selectedRegion) && panel.id !== selectedRegion;
+      panel.classList.toggle("is-region-hidden", shouldHide);
+    });
+
+    if (lists) lists.classList.toggle("is-filtered", Boolean(selectedRegion));
+
+    document.querySelectorAll("[data-map-region]").forEach((pin) => {
+      const isActive = pin.getAttribute("href") === "#" + selectedRegion;
+      pin.classList.toggle("is-active", isActive);
+      if (isActive) pin.setAttribute("aria-current", "true");
+      else pin.removeAttribute("aria-current");
+    });
+  }
+
+  window.apolloApplyRegionFilter = applyRegionFilter;
+
   document.querySelectorAll("[data-lang-button]").forEach((button) => {
     button.addEventListener("click", () => applyLanguage(button.dataset.langButton));
   });
@@ -292,16 +318,26 @@
       event.preventDefault();
       target.classList.remove("is-hidden");
       toggle.setAttribute("aria-expanded", "true");
+      applyRegionFilter("");
       target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  document.querySelectorAll("[data-map-region]").forEach((pin) => {
+    pin.addEventListener("click", () => {
+      const regionId = pin.getAttribute("href").slice(1);
+      applyRegionFilter(regionId);
     });
   });
 
   if (location.hash === "#region-map" || location.hash.indexOf("#region-") === 0) {
     const regionMap = document.querySelector("#region-map");
     const mapToggle = document.querySelector("[data-map-toggle]");
+    const selectedRegion = selectedRegionFromHash();
     const hashTarget = document.querySelector(location.hash);
     if (regionMap) regionMap.classList.remove("is-hidden");
     if (mapToggle) mapToggle.setAttribute("aria-expanded", "true");
+    applyRegionFilter(selectedRegion);
     if (hashTarget) requestAnimationFrame(() => hashTarget.scrollIntoView({ block: "start" }));
   }
 

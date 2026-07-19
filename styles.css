@@ -1350,3 +1350,26 @@ body {
     border-radius: 0;
   }
 }
+
+.region-panel.is-region-hidden {
+  display: none;
+}
+
+.region-lists.is-filtered {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.region-lists.is-filtered .region-panel {
+  min-height: auto;
+}
+
+.map-pin.is-active {
+  background: var(--accent-dark);
+  transform: translate(-50%, -56%);
+  box-shadow: 0 20px 46px rgba(23, 73, 77, 0.28);
+}
+
+.map-pin.is-active::before {
+  background: var(--paper);
+  box-shadow: 0 0 0 7px rgba(255, 253, 248, 0.24);
+}

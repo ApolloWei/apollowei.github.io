@@ -52,6 +52,7 @@
       const grid = document.querySelector(".work-grid");
       if (grid) grid.appendChild(renderWorkCard(work));
     });
+    if (window.apolloApplyRegionFilter) window.apolloApplyRegionFilter();
   }
   fetch("data/works.json", { cache: "no-store" }).then((response) => response.ok ? response.json() : { works: [] }).then((catalog) => {
     works = Array.isArray(catalog.works) ? catalog.works : [];
