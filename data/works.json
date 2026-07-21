@@ -112,6 +112,25 @@
       "gear": "DJI Mini 5 Pro",
       "videoPath": "assets/videos/rice-fragrance-1784438850169.mp4",
       "createdAt": "2026-07-19T05:27:41.705Z"
+    },
+    {
+      "id": "grindwald-switzerland-1784627723184",
+      "region": "europe",
+      "title": {
+        "zh": "瑞士·格林德瓦",
+        "en": "Grindwald, Switzerland"
+      },
+      "meta": {
+        "zh": "瑞士 / 格林德瓦",
+        "en": "瑞士 / 格林德瓦"
+      },
+      "description": {
+        "zh": "这多视频拍摄于瑞士的格林德瓦小镇。从山坡就可以望到著名的少女峰。",
+        "en": "These videos were filmed in the town of Grindelwald in Switzerland, where Jungfrau can be seen from the mountain slopes."
+      },
+      "gear": "DJI Mini 3 Pro",
+      "videoPath": "assets/videos/grindwald-switzerland-1784627723184.mp4",
+      "createdAt": "2026-07-21T09:55:33.064Z"
     }
   ]
 }
