@@ -1106,11 +1106,134 @@ h3 {
 }
 
 .comments-box {
+  display: grid;
+  gap: 20px;
   min-height: 180px;
   padding: 20px;
   border: 1px solid var(--line);
   background: var(--paper);
 }
+
+.comment-tabs {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  width: min(100%, 420px);
+  padding: 4px;
+  border: 1px solid rgba(222, 219, 210, 0.86);
+  border-radius: 999px;
+  background: rgba(247, 246, 241, 0.7);
+}
+
+.comment-tab {
+  min-height: 40px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.comment-tab:hover,
+.comment-tab:focus-visible {
+  color: var(--ink);
+  outline: none;
+}
+
+.comment-tab.is-active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.comment-panel {
+  display: grid;
+  gap: 18px;
+}
+
+.comment-note,
+.comment-status,
+.comment-empty {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.anonymous-comment-form {
+  display: grid;
+  gap: 14px;
+}
+
+.anonymous-comment-form label {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.anonymous-comment-form input,
+.anonymous-comment-form textarea {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid rgba(222, 219, 210, 0.88);
+  border-radius: 14px;
+  background: rgba(255, 253, 248, 0.86);
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+}
+
+.anonymous-comment-form textarea {
+  resize: vertical;
+}
+
+.anonymous-comment-form input:focus,
+.anonymous-comment-form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(47, 111, 115, 0.13);
+  outline: 0;
+}
+
+.anonymous-comment-list {
+  display: grid;
+  gap: 12px;
+}
+
+.anonymous-comment {
+  display: grid;
+  gap: 9px;
+  padding: 15px;
+  border: 1px solid rgba(222, 219, 210, 0.78);
+  border-radius: 16px;
+  background: rgba(255, 253, 248, 0.74);
+}
+
+.anonymous-comment div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.anonymous-comment strong {
+  font-size: 14px;
+}
+
+.anonymous-comment time {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.anonymous-comment p {
+  margin: 0;
+  color: var(--ink);
+}
+
 
 /* Visual polish pass */
 :root {
@@ -1541,6 +1664,16 @@ body {
   .likes-section {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .comment-tabs {
+    width: 100%;
+  }
+
+  .anonymous-comment div {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
   }
 }
 
