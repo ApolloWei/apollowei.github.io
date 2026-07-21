@@ -148,9 +148,19 @@
 
     <section class="section" id="works" aria-labelledby="works-title">
       <div class="section-heading">
-        <div>
+        <div class="works-title-block">
           <p class="eyebrow" data-i18n="home.worksEyebrow">Selected Works</p>
-          <h2 id="works-title" data-i18n="home.worksTitle">航拍作品</h2>
+          <div class="works-title-line">
+            <h2 id="works-title" data-i18n="home.worksTitle">航拍作品</h2>
+            <div class="sort-choice" data-sort-choice>
+              <button class="sort-button" type="button" aria-expanded="false" aria-haspopup="menu" aria-controls="sort-choice-menu" data-sort-toggle data-i18n="home.moreSort">更多排序方式</button>
+              <div class="sort-choice-menu" id="sort-choice-menu" role="menu" data-sort-menu hidden>
+                <button type="button" role="menuitem" data-sort-option="time" data-i18n="home.sortByTime">按照时间顺序</button>
+                <button type="button" role="menuitem" data-sort-option="alpha" data-i18n="home.sortByAlpha">按照首字母顺序</button>
+                <a href="#region-map" role="menuitem" data-map-toggle data-sort-region aria-controls="region-map" aria-expanded="false" data-i18n="home.sortByRegion">按照地区顺序</a>
+              </div>
+            </div>
+          </div>
         </div>
         <form class="work-search" role="search" aria-label="搜索作品" data-i18n-aria-label="home.searchLabel">
           <label for="work-search-input" data-i18n="home.searchLabel">搜索作品</label>
@@ -160,7 +170,7 @@
       </div>
 
       <div class="work-grid">
-        <article class="work-card">
+        <article class="work-card" data-work-card data-work-title-zh="Golden Coast" data-work-title-en="Golden Coast" data-work-region="asia" data-work-created="2026-01-01T00:00:00.000Z">
           <a href="work/golden-coast.html" aria-label="查看 Golden Coast 作品页" data-i18n-aria-label="home.goldenLabel">
             <div class="thumb coast"></div>
             <div class="work-card-copy">
@@ -171,7 +181,7 @@
           </a>
         </article>
 
-        <article class="work-card">
+        <article class="work-card" data-work-card data-work-title-zh="City Lines" data-work-title-en="City Lines" data-work-region="north-america" data-work-created="2026-01-02T00:00:00.000Z">
           <a href="work/city-lines.html" aria-label="查看 City Lines 作品页" data-i18n-aria-label="home.cityLabel">
             <div class="thumb city"></div>
             <div class="work-card-copy">
@@ -184,7 +194,7 @@
 
 
 
-        <article class="work-card">
+        <article class="work-card" data-work-card data-work-title-zh="瑞士·稻田" data-work-title-en="Switzerland's Field" data-work-region="europe" data-work-created="2026-07-17T00:00:00.000Z">
           <a href="work/switzerland-field.html" aria-label="查看 瑞士·稻田 作品页" data-i18n-aria-label="home.switzerlandLabel">
             <div class="thumb video-preview"><video muted loop playsinline preload="metadata" data-preview-video><source src="assets/videos/switzerland-field.mp4" type="video/mp4"></video></div>
             <div class="work-card-copy">
@@ -195,7 +205,7 @@
           </a>
         </article>
 
-        <article class="work-card">
+        <article class="work-card" data-work-card data-work-title-zh="Mountain Wind" data-work-title-en="Mountain Wind" data-work-region="europe" data-work-created="2026-01-03T00:00:00.000Z">
           <a href="work/mountain-wind.html" aria-label="查看 Mountain Wind 作品页" data-i18n-aria-label="home.mountainLabel">
             <div class="thumb mountain"></div>
             <div class="work-card-copy">
@@ -224,5 +234,6 @@
   <script src="language.js"></script>
   <script src="catalog.js"></script>
   <script src="works-search.js"></script>
+  <script src="works-sort.js"></script>
 </body>
 </html>

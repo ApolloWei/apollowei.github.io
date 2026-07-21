@@ -35,6 +35,11 @@
   function renderWorkCard(work) {
     const article = document.createElement("article");
     article.className = "work-card dynamic-work";
+    article.dataset.workCard = "";
+    article.dataset.workTitleZh = work.title && work.title.zh ? work.title.zh : "";
+    article.dataset.workTitleEn = work.title && work.title.en ? work.title.en : article.dataset.workTitleZh;
+    article.dataset.workRegion = work.region || "";
+    article.dataset.workCreated = work.createdAt || "";
     article.innerHTML = '<a><div class="thumb video-preview"><video muted loop playsinline preload="metadata" data-preview-video></video></div><div class="work-card-copy"><span></span><h3></h3><p></p></div></a>';
     const link = article.querySelector("a");
     link.href = "work/video.html?id=" + encodeURIComponent(work.id);
@@ -119,6 +124,7 @@
     updateFeaturedHero();
     setupPreviewVideos();
     if (window.apolloApplyRegionFilter) window.apolloApplyRegionFilter();
+    if (window.apolloApplyWorkSort) window.apolloApplyWorkSort();
     if (window.apolloApplyWorkSearch) window.apolloApplyWorkSearch();
   }
   setupPreviewVideos();
