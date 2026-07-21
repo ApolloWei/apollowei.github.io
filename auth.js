@@ -1,5 +1,6 @@
 (function () {
-  const password = "12345";
+  const passwordHash = "6d1addcabf07b9fccc26c02cf907dffa8a127f0fe6b1e4ea12eabe5964946c58";
+  const passwordSalt = "apollo-portfolio-2026";
   const accessKey = "apolloAccessGranted";
   const redirectKey = "apolloRedirectAfterLogin";
   const homePage = "hall.html";
@@ -20,6 +21,16 @@
       return null;
     }
     return true;
+  }
+
+  async function sha256(value) {
+    const bytes = new TextEncoder().encode(value);
+    const hash = await window.crypto.subtle.digest("SHA-256", bytes);
+    return Array.from(new Uint8Array(hash)).map((byte) => byte.toString(16).padStart(2, "0")).join("");
+  }
+
+  async function passwordMatches(value, expectedHash) {
+    return sha256(passwordSalt + ":" + value).then((hash) => hash === expectedHash).catch(() => false);
   }
 
   function saveRedirect() {
@@ -64,9 +75,9 @@
       return;
     }
 
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      if (input.value === password) {
+      if (await passwordMatches(input.value, passwordHash)) {
         setGranted();
         window.location.href = takeRedirect() || homePage;
         return;
