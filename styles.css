@@ -179,6 +179,8 @@ a {
 }
 
 .hero-copy {
+  position: relative;
+  z-index: 3;
   max-width: 680px;
 }
 
@@ -229,6 +231,8 @@ h3 {
 
 .hero-actions,
 .page-actions {
+  position: relative;
+  z-index: 4;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -269,7 +273,7 @@ h3 {
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
-  z-index: 8;
+  z-index: 30;
   display: grid;
   width: max-content;
   min-width: 190px;
@@ -300,6 +304,23 @@ h3 {
   background: rgba(47, 111, 115, 0.1);
   color: var(--accent-dark);
   outline: none;
+}
+
+@media (max-width: 620px) {
+  .work-choice {
+    width: 100%;
+  }
+
+  .work-choice .button {
+    width: 100%;
+  }
+
+  .work-choice-menu {
+    left: 0;
+    right: 0;
+    width: min(100%, calc(100vw - 12vw));
+    min-width: 0;
+  }
 }
 
 .hero-visual {
