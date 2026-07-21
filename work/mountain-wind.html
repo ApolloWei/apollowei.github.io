@@ -71,6 +71,20 @@
       </div>
     </section>
 
+    <section class="likes-section" aria-labelledby="likes-title" data-likes-section>
+      <div>
+        <p class="eyebrow" data-i18n="likes.eyebrow">Likes</p>
+        <h2 id="likes-title" data-i18n="likes.title">喜欢这个作品吗？</h2>
+      </div>
+      <div class="likes-panel">
+        <button class="like-button" type="button" data-like-button>
+          <span data-like-icon aria-hidden="true">+</span>
+          <span data-like-button-text data-i18n="likes.button">点赞</span>
+        </button>
+        <p data-like-count-text>0 个赞</p>
+      </div>
+    </section>
+
     <section class="comments-section" aria-labelledby="comments-title">
       <p class="eyebrow" data-i18n="comments.eyebrow">Comments</p>
       <h2 id="comments-title" data-i18n="comments.title">留言评价</h2>
@@ -78,6 +92,7 @@
     </section>
   </main>
   <script src="../language.js"></script>
+  <script src="../likes.js"></script>
   <script src="../comments.js"></script>
 </body>
 </html>
