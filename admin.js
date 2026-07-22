@@ -2,6 +2,9 @@
   const passwordSalt = "apollo-portfolio-2026";
   const adminPasswordHash = "9e30faa2d00bfa260dab82b4342835e836fadc58f16c75e6806404cd6e064611";
   const deletePasswordHash = "5e2a361ea0321a5379ce6910398e8c597bdd9f0294897dc37066b62e96a72c95";
+  const adminAccessKey = "apolloAdminGrantedV2";
+  const legacyAdminAccessKey = "apolloAdminGranted";
+  const adminAccessMaxAge = 2 * 60 * 60 * 1000;
   const repoOwner = "ApolloWei";
   const repoName = "apollowei.github.io";
   const branch = "main";
@@ -39,14 +42,45 @@
   async function passwordMatches(value, expectedHash) {
     return sha256(passwordSalt + ":" + value).then((hash) => hash === expectedHash).catch(() => false);
   }
+  async function adminSessionProof(issuedAt) {
+    return sha256(passwordSalt + ":admin-session:" + adminPasswordHash + ":" + issuedAt);
+  }
+  function clearLegacyAdminAccess() {
+    try { window.sessionStorage.removeItem(legacyAdminAccessKey); } catch (error) {}
+  }
+  async function hasAdminAccess() {
+    clearLegacyAdminAccess();
+    try {
+      const raw = window.sessionStorage.getItem(adminAccessKey);
+      if (!raw) return false;
+      const session = JSON.parse(raw);
+      const issuedAt = Number(session.issuedAt);
+      if (!issuedAt || Date.now() - issuedAt > adminAccessMaxAge) {
+        window.sessionStorage.removeItem(adminAccessKey);
+        return false;
+      }
+      return session.proof === await adminSessionProof(issuedAt);
+    } catch (error) {
+      try { window.sessionStorage.removeItem(adminAccessKey); } catch (removeError) {}
+      return false;
+    }
+  }
+  async function grantAdminAccess() {
+    const issuedAt = Date.now();
+    const proof = await adminSessionProof(issuedAt);
+    try {
+      window.sessionStorage.setItem(adminAccessKey, JSON.stringify({ issuedAt, proof }));
+      clearLegacyAdminAccess();
+    } catch (error) {}
+  }
   login.addEventListener("submit", async (event) => {
     event.preventDefault();
     const input = document.querySelector("[data-admin-password]");
     const error = document.querySelector("[data-admin-error]");
-    if (await passwordMatches(input.value, adminPasswordHash)) { window.sessionStorage.setItem("apolloAdminGranted", "true"); showPanel(); return; }
+    if (await passwordMatches(input.value, adminPasswordHash)) { await grantAdminAccess(); showPanel(); return; }
     input.value = ""; input.focus(); error.hidden = false;
   });
-  if (window.sessionStorage.getItem("apolloAdminGranted") === "true") showPanel();
+  hasAdminAccess().then((granted) => { if (granted) showPanel(); });
   function headers(token) { return { "Accept": "application/vnd.github+json", "Authorization": "Bearer " + token, "X-GitHub-Api-Version": "2022-11-28" }; }
   function slugify(value) { return value.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 48) || "video-" + Date.now(); }
   function readableError(error) {

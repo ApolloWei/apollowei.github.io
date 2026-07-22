@@ -18,6 +18,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.auth-locked body {
+  visibility: hidden;
+}
+
 body {
   margin: 0;
   background: var(--bg);
