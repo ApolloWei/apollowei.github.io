@@ -55,6 +55,7 @@
               </select>
             </label>
             <label>拍摄设备<input type="text" data-gear placeholder="例如：DJI Mini 4 Pro" required></label>
+            <label>拍摄时间<input type="month" data-shoot-date required></label>
           </div>
           <div class="admin-two-cols">
             <label>中文介绍<textarea data-description-zh rows="5" required></textarea></label>
@@ -65,8 +66,8 @@
           <p class="admin-status" data-upload-status></p>
         </form>
         <form class="admin-card admin-form" data-edit-form>
-          <h2>修改视频描述</h2>
-          <p class="admin-note">选择已发布的视频，修改中英文介绍后保存。标题、分类和视频文件不会被改动。</p>
+          <h2>修改视频信息</h2>
+          <p class="admin-note">选择已发布的视频，修改中英文介绍、拍摄设备和拍摄时间后保存。标题、分类和视频文件不会被改动。</p>
           <label>GitHub Token<input type="password" data-edit-token placeholder="ghp_..." autocomplete="off" required></label>
           <label class="admin-check"><input type="checkbox" data-edit-remember-token> 记住本设备 Token</label>
           <div class="admin-two-cols">
@@ -76,6 +77,7 @@
               </select>
             </label>
             <label>拍摄设备<input type="text" data-edit-gear placeholder="例如：DJI Mini 4 Pro" required></label>
+            <label>拍摄时间<input type="month" data-edit-shoot-date required></label>
           </div>
           <div class="admin-two-cols">
             <label>中文介绍<textarea data-edit-description-zh rows="5" required></textarea></label>

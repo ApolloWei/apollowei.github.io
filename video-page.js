@@ -10,6 +10,16 @@
   function currentLang() { return document.documentElement.lang === "en" ? "en" : "zh"; }
   function text(value) { return typeof value === "string" ? value : value && (value[currentLang()] || value.zh || value.en) || ""; }
   function regionLabel(region) { return text(labels[region]) || region; }
+  function monthFromCreated(value) { const date = new Date(value || ""); return Number.isNaN(date.getTime()) ? "" : date.toISOString().slice(0, 7); }
+  function formatShootDate(value) {
+    if (!value) return currentLang() === "en" ? "Not set" : "未设置";
+    const parts = value.split("-");
+    if (parts.length !== 2) return value;
+    const year = parts[0];
+    const month = Number(parts[1]);
+    if (currentLang() === "en") return new Date(Date.UTC(Number(year), month - 1, 1)).toLocaleString("en", { month: "long", year: "numeric", timeZone: "UTC" });
+    return year + "年" + month + "月";
+  }
   const id = new URLSearchParams(window.location.search).get("id");
   let activeWork = null;
   fetch("../data/works.json", { cache: "no-store" }).then((response) => response.ok ? response.json() : { works: [] }).then((catalog) => {
@@ -38,6 +48,7 @@
     document.querySelector("[data-video-region-detail]").textContent = regionLabel(activeWork.region);
     document.querySelector("[data-video-description]").textContent = text(activeWork.description);
     document.querySelector("[data-video-gear]").textContent = activeWork.gear || "Drone Camera";
+    document.querySelector("[data-video-shoot-date]").textContent = formatShootDate(activeWork.shootDate || monthFromCreated(activeWork.createdAt));
   }
 
   document.querySelectorAll("[data-lang-button]").forEach((button) => {

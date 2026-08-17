@@ -40,6 +40,7 @@
     article.dataset.workTitleEn = work.title && work.title.en ? work.title.en : article.dataset.workTitleZh;
     article.dataset.workRegion = work.region || "";
     article.dataset.workCreated = work.createdAt || "";
+    article.dataset.workShootDate = work.shootDate || (work.createdAt || "").slice(0, 7);
     article.innerHTML = '<a><div class="thumb video-preview"><video muted loop playsinline preload="metadata" data-preview-video></video></div><div class="work-card-copy"><span></span><h3></h3><p></p></div></a>';
     const link = article.querySelector("a");
     link.href = "work/video.html?id=" + encodeURIComponent(work.id);
@@ -86,8 +87,9 @@
       card.addEventListener("focusout", resetPreview);
     });
   }
+  function monthValue(work) { return Number((work.shootDate || "").replace("-", "")) || Number((work.createdAt || "").slice(0, 7).replace("-", "")) || 0; }
   function newestWork() {
-    return works.slice().sort((a, b) => Date.parse(b.createdAt || "") - Date.parse(a.createdAt || ""))[0] || null;
+    return works.slice().sort((a, b) => monthValue(b) - monthValue(a) || Date.parse(b.createdAt || "") - Date.parse(a.createdAt || ""))[0] || null;
   }
   function updateFeaturedHero() {
     const work = newestWork();

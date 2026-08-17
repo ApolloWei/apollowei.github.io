@@ -17,7 +17,8 @@
       },
       "videoPath": "assets/videos/qiandao-lake-1784294304223.mp4",
       "createdAt": "2026-07-17T13:18:29.222Z",
-      "gear": "DJI Mini 3 Pro"
+      "gear": "DJI Mini 3 Pro",
+      "shootDate": "2026-07"
     },
     {
       "id": "hangzhou-little-lighthouse-1784295162123",
@@ -35,7 +36,8 @@
         "en": "This is a popular small lighthouse located in Qiandao Lake Scenic Area, Hangzhou. It will be very beautiful and romantic during sunset time."
       },
       "videoPath": "assets/videos/hangzhou-little-lighthouse-1784295162123.mp4",
-      "createdAt": "2026-07-17T13:32:49.907Z"
+      "createdAt": "2026-07-17T13:32:49.907Z",
+      "shootDate": "2026-07"
     },
     {
       "id": "mount-rigi-1784433729040",
@@ -54,7 +56,8 @@
       },
       "gear": "DJI Mini 3 Pro",
       "videoPath": "assets/videos/mount-rigi-1784433729040.mp4",
-      "createdAt": "2026-07-19T04:02:15.523Z"
+      "createdAt": "2026-07-19T04:02:15.523Z",
+      "shootDate": "2026-07"
     },
     {
       "id": "longli-bridge-1784434650143",
@@ -73,7 +76,8 @@
       },
       "gear": "DJI Mini 3 Pro",
       "videoPath": "assets/videos/longli-bridge-1784434650143.mp4",
-      "createdAt": "2026-07-19T04:17:33.807Z"
+      "createdAt": "2026-07-19T04:17:33.807Z",
+      "shootDate": "2026-07"
     },
     {
       "id": "guizhou-s-field-1784438684417",
@@ -92,7 +96,8 @@
       },
       "gear": "DJI Mini 3 Pro",
       "videoPath": "assets/videos/guizhou-s-field-1784438684417.mp4",
-      "createdAt": "2026-07-19T05:24:52.688Z"
+      "createdAt": "2026-07-19T05:24:52.688Z",
+      "shootDate": "2026-07"
     },
     {
       "id": "rice-fragrance-1784438850169",
@@ -111,7 +116,8 @@
       },
       "gear": "DJI Mini 5 Pro",
       "videoPath": "assets/videos/rice-fragrance-1784438850169.mp4",
-      "createdAt": "2026-07-19T05:27:41.705Z"
+      "createdAt": "2026-07-19T05:27:41.705Z",
+      "shootDate": "2026-07"
     },
     {
       "id": "grindwald-switzerland-1784627723184",
@@ -130,7 +136,8 @@
       },
       "gear": "DJI Mini 3 Pro",
       "videoPath": "assets/videos/grindwald-switzerland-1784627723184.mp4",
-      "createdAt": "2026-07-21T09:55:33.064Z"
+      "createdAt": "2026-07-21T09:55:33.064Z",
+      "shootDate": "2026-07"
     }
   ]
 }

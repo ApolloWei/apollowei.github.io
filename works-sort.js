@@ -16,10 +16,11 @@
   function cardList() {
     return Array.from(grid.querySelectorAll("[data-work-card]"));
   }
+  function timeValue(card) { return Number((card.dataset.workShootDate || "").replace("-", "")) || Number((card.dataset.workCreated || "").slice(0, 7).replace("-", "")) || 0; }
   function sortCards(mode) {
     const cards = cardList();
     if (mode === "time") {
-      cards.sort((a, b) => Date.parse(b.dataset.workCreated || "") - Date.parse(a.dataset.workCreated || ""));
+      cards.sort((a, b) => timeValue(b) - timeValue(a) || Date.parse(b.dataset.workCreated || "") - Date.parse(a.dataset.workCreated || ""));
     }
     if (mode === "alpha") {
       cards.sort((a, b) => titleFor(a).localeCompare(titleFor(b), currentLang() === "zh" ? "zh-CN" : "en", { sensitivity: "base" }));
