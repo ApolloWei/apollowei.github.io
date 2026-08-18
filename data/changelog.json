@@ -1,6 +1,13 @@
 {
   "updates": [
     {
+      "version": "4.2",
+      "description": {
+        "zh": "修复动态视频加载标题双语显示，并修复评论区匿名/GitHub 标签切换。",
+        "en": "Fixed the dynamic video loading title translation and the anonymous/GitHub comment tab switching."
+      }
+    },
+    {
       "version": "4.1",
       "description": {
         "zh": "增加更新日志入口、日志页面和管理者编辑功能。",

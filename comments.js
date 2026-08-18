@@ -59,7 +59,7 @@
       <p class="comment-note" data-comment-github-note></p>
       <div data-github-comments></div>
     </div>
-    <div class="comment-panel is-hidden" data-comment-panel="anonymous">
+    <div class="comment-panel" data-comment-panel="anonymous" hidden>
       <p class="comment-note" data-comment-anonymous-note></p>
       <form class="anonymous-comment-form" data-anonymous-comment-form>
         <label><span data-comment-name-label></span><input type="text" maxlength="40" required data-comment-name></label>
@@ -100,9 +100,10 @@
       const active = tab.dataset.commentTab === nextTab;
       tab.classList.toggle("is-active", active);
       tab.setAttribute("aria-selected", String(active));
+      tab.tabIndex = active ? 0 : -1;
     });
-    githubPanel.classList.toggle("is-hidden", nextTab !== "github");
-    anonymousPanel.classList.toggle("is-hidden", nextTab !== "anonymous");
+    githubPanel.hidden = nextTab !== "github";
+    anonymousPanel.hidden = nextTab !== "anonymous";
     if (nextTab === "anonymous") loadAnonymousComments();
   }
   function renderAnonymousComments() {

@@ -85,6 +85,7 @@
       },
       work: {
         eyebrow: "Aerial Work",
+        loading: "作品加载中",
         coast: "海岸",
         sunset: "日落",
         city: "城市",
@@ -216,6 +217,7 @@
       },
       work: {
         eyebrow: "Aerial Work",
+        loading: "Loading work",
         coast: "Coast",
         sunset: "Sunset",
         city: "City",

@@ -1249,6 +1249,10 @@ h3 {
   gap: 18px;
 }
 
+.comment-panel[hidden] {
+  display: none;
+}
+
 .comment-note,
 .comment-status,
 .comment-empty {
