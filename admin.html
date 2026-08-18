@@ -93,6 +93,32 @@
           <p class="admin-status" data-edit-status></p>
         </form>
 
+        <form class="admin-card admin-form" data-changelog-form>
+          <h2>更新日志管理</h2>
+          <p class="admin-note">当前统计共 32 次更新，最新版本为 4.1。以后每次新增网站功能时，可以在这里修改或新增版本说明。</p>
+          <label>GitHub Token<input type="password" data-changelog-token placeholder="ghp_..." autocomplete="off" required></label>
+          <label class="admin-check"><input type="checkbox" data-changelog-remember-token> 记住本设备 Token</label>
+          <div class="admin-two-cols">
+            <label>选择已有版本
+              <select data-changelog-select>
+                <option value="">新增版本</option>
+              </select>
+            </label>
+            <label>版本号<input type="text" data-changelog-version placeholder="例如：4.2" required></label>
+          </div>
+          <div class="admin-two-cols">
+            <label>中文更新描述<textarea data-changelog-description-zh rows="4" required></textarea></label>
+            <label>英文更新描述<textarea data-changelog-description-en rows="4" required></textarea></label>
+          </div>
+          <div class="admin-actions-row">
+            <button class="button primary" type="submit">保存更新日志</button>
+            <button class="button secondary" type="button" data-changelog-new>填写下一版本</button>
+            <button class="button secondary" type="button" data-changelog-delete>删除所选版本</button>
+          </div>
+          <div class="admin-list" data-changelog-list></div>
+          <p class="admin-status" data-changelog-status></p>
+        </form>
+
         <section class="admin-card">
           <h2>删除已上传视频</h2>
           <p class="admin-note">这里管理的是通过本页面上传到动态列表的视频。删除会同时更新作品列表，并尝试删除仓库中的视频文件。</p>
@@ -107,5 +133,6 @@
   </main>
   <script src="loading.js"></script>
   <script src="admin.js"></script>
+  <script src="admin-changelog.js"></script>
 </body>
 </html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="auth-locked">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apollo 航拍网站更新日志。" data-i18n-content="meta.changelogDescription">
+  <title>Apollo | 更新日志</title>
+  <script src="theme.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script>window.APOLLO_PROTECTED = true;</script>
+  <script src="auth.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="hall.html" aria-label="Apollo 主页" data-i18n-aria-label="nav.homeLabel">Apollo</a>
+    <nav class="nav" aria-label="主导航" data-i18n-aria-label="nav.label">
+      <a href="hall.html#works" data-i18n="nav.works">作品</a>
+      <a href="hall.html#about" data-i18n="nav.about">关于</a>
+      <a href="hall.html#contact" data-i18n="nav.contact">联系</a>
+      <a href="changelog.html" aria-current="page" data-i18n="nav.changelog">更新日志</a>
+      <a class="manager-link" href="admin.html" data-i18n="nav.admin">我是管理者</a>
+      <div class="language-switch" aria-label="语言切换" data-i18n-aria-label="language.switchLabel">
+        <button type="button" data-lang-button="zh">中文</button>
+        <button type="button" data-lang-button="en">EN</button>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="切换深色模式">
+        <span data-theme-icon aria-hidden="true">D</span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="changelog-page">
+    <section class="section changelog-section" aria-labelledby="changelog-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="changelog.eyebrow">Release Notes</p>
+          <h1 id="changelog-title" data-i18n="changelog.title">更新日志</h1>
+        </div>
+        <p data-i18n="changelog.text">这里记录 Apollo 网站每一次制作和功能更新。</p>
+      </div>
+
+      <div class="changelog-summary" data-changelog-summary>共 32 次更新 · 当前版本 4.1</div>
+      <div class="changelog-table" role="table" aria-label="更新日志" data-i18n-aria-label="changelog.tableLabel">
+        <div class="changelog-row changelog-head" role="row">
+          <div role="columnheader" data-i18n="changelog.descriptionColumn">更新描述</div>
+          <div role="columnheader" data-i18n="changelog.versionColumn">版本</div>
+        </div>
+        <div data-changelog-rows></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="language.js"></script>
+  <script src="loading.js"></script>
+  <script src="changelog.js"></script>
+</body>
+</html>

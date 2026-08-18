@@ -7,7 +7,8 @@
         goldenDescription: "Apollo 航拍作品 Golden Coast。",
         cityDescription: "Apollo 航拍作品 City Lines。",
         mountainDescription: "Apollo 航拍作品 Mountain Wind。",
-        switzerlandDescription: "Apollo 航拍作品 瑞士·稻田。"
+        switzerlandDescription: "Apollo 航拍作品 瑞士·稻田。",
+        changelogDescription: "Apollo 航拍网站更新日志。"
       },
       nav: {
         label: "主导航",
@@ -15,7 +16,8 @@
         works: "作品",
         about: "关于",
         contact: "联系",
-        admin: "我是管理者"
+        admin: "我是管理者",
+        changelog: "更新日志"
       },
       language: {
         switchLabel: "语言切换"
@@ -136,7 +138,8 @@
         goldenDescription: "Apollo aerial work: Golden Coast.",
         cityDescription: "Apollo aerial work: City Lines.",
         mountainDescription: "Apollo aerial work: Mountain Wind.",
-        switzerlandDescription: "Apollo aerial work: Switzerland's Field."
+        switzerlandDescription: "Apollo aerial work: Switzerland's Field.",
+        changelogDescription: "Release notes for Apollo's aerial video website."
       },
       nav: {
         label: "Main navigation",
@@ -144,7 +147,8 @@
         works: "Works",
         about: "About",
         contact: "Contact",
-        admin: "Manager"
+        admin: "Manager",
+        changelog: "Changelog"
       },
       language: {
         switchLabel: "Language switch"

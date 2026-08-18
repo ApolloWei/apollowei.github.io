@@ -2210,3 +2210,105 @@ body {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* Changelog */
+.changelog-page {
+  min-height: calc(100vh - 76px);
+}
+
+.changelog-section {
+  padding-top: clamp(56px, 7vw, 92px);
+}
+
+.changelog-summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  margin-bottom: 18px;
+  padding: 0 16px;
+  border: 1px solid rgba(222, 219, 210, 0.78);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.72);
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: var(--soft-shadow);
+}
+
+.changelog-table {
+  overflow: hidden;
+  border: 1px solid rgba(222, 219, 210, 0.76);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 253, 248, 0.86);
+  box-shadow: var(--lift-shadow);
+}
+
+.changelog-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(88px, 0.18fr);
+  border-top: 1px solid rgba(222, 219, 210, 0.72);
+}
+
+.changelog-row:first-child {
+  border-top: 0;
+}
+
+.changelog-row > div {
+  padding: 18px 20px;
+}
+
+.changelog-row > div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-left: 1px solid rgba(222, 219, 210, 0.72);
+  color: var(--accent-dark);
+  font-weight: 900;
+}
+
+.changelog-head {
+  background: rgba(247, 246, 241, 0.72);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.admin-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+[data-theme="dark"] .changelog-summary,
+[data-theme="dark"] .changelog-table {
+  border-color: rgba(245, 245, 240, 0.12);
+  background: rgba(16, 18, 20, 0.86);
+}
+
+[data-theme="dark"] .changelog-row,
+[data-theme="dark"] .changelog-row > div:last-child {
+  border-color: rgba(245, 245, 240, 0.12);
+}
+
+[data-theme="dark"] .changelog-head {
+  background: rgba(245, 245, 240, 0.07);
+}
+
+[data-theme="dark"] .changelog-row > div:last-child {
+  color: var(--accent);
+}
+
+@media (max-width: 720px) {
+  .changelog-row {
+    grid-template-columns: minmax(0, 1fr) 74px;
+  }
+
+  .changelog-row > div {
+    padding: 14px;
+  }
+
+  .changelog-head {
+    font-size: 12px;
+  }
+}
