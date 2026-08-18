@@ -22,6 +22,15 @@
   }
   const id = new URLSearchParams(window.location.search).get("id");
   let activeWork = null;
+  let loadingDone = false;
+
+  function finishLoading() {
+    if (loadingDone) return;
+    loadingDone = true;
+    if (window.apolloLoader) window.apolloLoader.hide();
+  }
+
+  if (window.apolloLoader) window.apolloLoader.show();
   fetch("../data/works.json", { cache: "no-store" }).then((response) => response.ok ? response.json() : { works: [] }).then((catalog) => {
     const work = (catalog.works || []).find((item) => item.id === id);
     if (!work) throw new Error("not found");
@@ -33,8 +42,14 @@
     source.type = "video/mp4";
     const player = document.querySelector("[data-video-player]");
     player.appendChild(source);
+    player.addEventListener("loadedmetadata", finishLoading, { once: true });
+    player.addEventListener("canplay", finishLoading, { once: true });
+    player.addEventListener("error", finishLoading, { once: true });
     player.load();
+    if (player.readyState >= 1) finishLoading();
+    window.setTimeout(finishLoading, 7000);
   }).catch(() => {
+    finishLoading();
     document.querySelector("[data-video-title]").textContent = currentLang() === "en" ? "Work not found" : "作品不存在";
     document.querySelector("[data-video-description]").textContent = currentLang() === "en" ? "This work may have been deleted." : "这个作品可能已经被删除。";
   });
