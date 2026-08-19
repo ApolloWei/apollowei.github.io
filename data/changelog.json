@@ -1,235 +1,276 @@
 {
   "updates": [
     {
+      "version": "4.3",
+      "date": "2026-08-19",
+      "description": {
+        "zh": "为每条更新日志增加日期，并修复更新日志页面标题双语显示。",
+        "en": "Added dates to every changelog entry and fixed the changelog page title translation."
+      }
+    },
+    {
       "version": "4.2",
       "description": {
         "zh": "修复动态视频加载标题双语显示，并修复评论区匿名/GitHub 标签切换。",
         "en": "Fixed the dynamic video loading title translation and the anonymous/GitHub comment tab switching."
-      }
+      },
+      "date": "2026-08-18"
     },
     {
       "version": "4.1",
       "description": {
         "zh": "增加更新日志入口、日志页面和管理者编辑功能。",
         "en": "Added the changelog entry point, changelog page, and manager editing tools."
-      }
+      },
+      "date": "2026-08-18"
     },
     {
       "version": "4.0",
       "description": {
         "zh": "增加浅色/深色自适应页面加载动画。",
         "en": "Added a light/dark adaptive page loading animation."
-      }
+      },
+      "date": "2026-08-18"
     },
     {
       "version": "3.9",
       "description": {
         "zh": "支持系统深色模式和右上角手动切换。",
         "en": "Added system dark mode support and a manual top-right theme toggle."
-      }
+      },
+      "date": "2026-08-18"
     },
     {
       "version": "3.8",
       "description": {
         "zh": "增加拍摄年月字段，详情页展示时间，首屏按时间选最新。",
         "en": "Added shooting year/month metadata, displayed it on detail pages, and used it to choose the latest hero video."
-      }
+      },
+      "date": "2026-08-17"
     },
     {
       "version": "3.7",
       "description": {
         "zh": "加强前端密码逻辑，改为哈希和会话校验。",
         "en": "Strengthened the front-end password flow with hashing and session validation."
-      }
+      },
+      "date": "2026-07-22"
     },
     {
       "version": "3.6",
       "description": {
         "zh": "评论区支持 GitHub 登录留言和匿名留言。",
         "en": "Added GitHub-authored comments and anonymous comments."
-      }
+      },
+      "date": "2026-07-21"
     },
     {
       "version": "3.5",
       "description": {
         "zh": "连接 Firebase Realtime Database，让点赞数线上共享。",
         "en": "Connected Firebase Realtime Database so like counts are shared online."
-      }
+      },
+      "date": "2026-07-21"
     },
     {
       "version": "3.4",
       "description": {
         "zh": "每个视频增加点赞功能和点赞总数显示。",
         "en": "Added likes and total like counts for each video."
-      }
+      },
+      "date": "2026-07-21"
     },
     {
       "version": "3.3",
       "description": {
         "zh": "修复手机端查看作品弹窗被首屏遮挡。",
         "en": "Fixed the mobile work menu being covered by the hero section."
-      }
+      },
+      "date": "2026-07-21"
     },
     {
       "version": "3.2",
       "description": {
         "zh": "作品卡片使用视频第一帧，并支持鼠标悬停播放。",
         "en": "Replaced artwork placeholders with video first frames and hover playback."
-      }
+      },
+      "date": "2026-07-19"
     },
     {
       "version": "3.1",
       "description": {
         "zh": "“查看作品”按钮改为可选择浏览全部或按地区浏览。",
         "en": "Changed the View Works button to offer all videos or region browsing."
-      }
+      },
+      "date": "2026-07-19"
     },
     {
       "version": "3.0",
       "description": {
         "zh": "大厅首屏自动使用最新上传或最新拍摄时间的视频。",
         "en": "Made the hall hero automatically feature the latest uploaded or latest shot video."
-      }
+      },
+      "date": "2026-07-19"
     },
     {
       "version": "2.9",
       "description": {
         "zh": "修复视频详情页语言自动切回中文的问题。",
         "en": "Fixed video detail pages automatically switching back to Chinese."
-      }
+      },
+      "date": "2026-07-19"
     },
     {
       "version": "2.8",
       "description": {
         "zh": "航拍作品区增加按名称搜索功能。",
         "en": "Added title search to the aerial works section."
-      }
+      },
+      "date": "2026-07-19"
     },
     {
       "version": "2.7",
       "description": {
         "zh": "地图点击洲后只显示该洲作品目录。",
         "en": "Made continent clicks filter the region lists to only that continent."
-      }
+      },
+      "date": "2026-07-19"
     },
     {
       "version": "2.6",
       "description": {
         "zh": "优化整体视觉：语言按钮动画、圆角、排版和细节。",
         "en": "Polished the visual design with animated language controls, softer corners, and refined layout details."
-      }
+      },
+      "date": "2026-07-19"
     },
     {
       "version": "2.5",
       "description": {
         "zh": "每个视频详情页增加留言评价区。",
         "en": "Added a comment and review area under each video detail page."
-      }
+      },
+      "date": "2026-07-18"
     },
     {
       "version": "2.4",
       "description": {
         "zh": "上传和编辑视频时支持填写拍摄设备。",
         "en": "Added shooting gear fields when uploading or editing videos."
-      }
+      },
+      "date": "2026-07-17"
     },
     {
       "version": "2.3",
       "description": {
         "zh": "修复右上角“作品”入口后瑞士·稻田不显示的问题。",
         "en": "Fixed Switzerland's Field not appearing after using the top-right Works entry."
-      }
+      },
+      "date": "2026-07-17"
     },
     {
       "version": "2.2",
       "description": {
         "zh": "管理者模式支持修改已发布视频描述。",
         "en": "Added manager editing for published video descriptions."
-      }
+      },
+      "date": "2026-07-17"
     },
     {
       "version": "2.1",
       "description": {
         "zh": "确认“杭州小灯塔”作为大厅首屏作品入口。",
         "en": "Confirmed Hangzhou Lighthouse as the hall hero work entry."
-      }
+      },
+      "date": "2026-07-17"
     },
     {
       "version": "2.0",
       "description": {
         "zh": "大厅首屏改为“杭州小灯塔”，并可点击观看。",
         "en": "Changed the hall hero to Hangzhou Lighthouse and made it clickable."
-      }
+      },
+      "date": "2026-07-17"
     },
     {
       "version": "1.9",
       "description": {
         "zh": "删除视频增加独立删除密码。",
         "en": "Added a separate delete password for video removal."
-      }
+      },
+      "date": "2026-07-17"
     },
     {
       "version": "1.8",
       "description": {
         "zh": "添加管理者入口，支持自主上传、分类、描述和删除视频。",
         "en": "Added a manager area for uploading, categorizing, describing, and deleting videos."
-      }
+      },
+      "date": "2026-07-17"
     },
     {
       "version": "1.7",
       "description": {
         "zh": "添加访问密码页，输入密码后进入大厅和视频页。",
         "en": "Added an access password page before the hall and video pages."
-      }
+      },
+      "date": "2026-07-17"
     },
     {
       "version": "1.6",
       "description": {
         "zh": "清理超过 100MB 的旧视频并整理仓库推送。",
         "en": "Cleaned up the oversized video file and pushed the organized repository."
-      }
+      },
+      "date": "2026-07-17"
     },
     {
       "version": "1.5",
       "description": {
         "zh": "将瑞士视频替换为更小体积版本。",
         "en": "Replaced the Switzerland video with a smaller version."
-      }
+      },
+      "date": "2026-07-17"
     },
     {
       "version": "1.4",
       "description": {
         "zh": "将“瑞士·稻田”视频加入欧洲列表，并通过列表进入视频。",
         "en": "Added Switzerland's Field to the Europe list with list-based video entry."
-      }
+      },
+      "date": "2026-07-17"
     },
     {
       "version": "1.3",
       "description": {
         "zh": "重绘更真实的世界地图视觉。",
         "en": "Redrew the world map with a more realistic look."
-      }
+      },
+      "date": "2026-07-17"
     },
     {
       "version": "1.2",
       "description": {
         "zh": "“查看作品”接入世界地图，按地区进入作品。",
         "en": "Connected View Works to a world map for region-based browsing."
-      }
+      },
+      "date": "2026-07-17"
     },
     {
       "version": "1.1",
       "description": {
         "zh": "添加中英双语切换。",
         "en": "Added Chinese and English language switching."
-      }
+      },
+      "date": "2026-06-18"
     },
     {
       "version": "1.0",
       "description": {
         "zh": "建立个人航拍网站基础框架：首页、介绍和作品独立页结构。",
         "en": "Built the first aerial portfolio framework with a home page, introduction, and individual work pages."
-      }
+      },
+      "date": "2026-06-18"
     }
   ]
 }

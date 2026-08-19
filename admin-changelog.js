@@ -12,6 +12,7 @@
   const versionInput = form.querySelector("[data-changelog-version]");
   const zhInput = form.querySelector("[data-changelog-description-zh]");
   const enInput = form.querySelector("[data-changelog-description-en]");
+  const dateInput = form.querySelector("[data-changelog-date]");
   const status = form.querySelector("[data-changelog-status]");
   const list = form.querySelector("[data-changelog-list]");
   let changelog = { updates: [] };
@@ -57,6 +58,10 @@
   function versionScore(version) {
     const parts = String(version || "0.0").split(".").map((part) => Number(part) || 0);
     return (parts[0] || 0) * 10 + (parts[1] || 0);
+  }
+
+  function todayValue() {
+    return new Date().toISOString().slice(0, 10);
   }
 
   function nextVersion() {
@@ -116,13 +121,14 @@
         const row = document.createElement("div");
         row.className = "admin-list-item";
         row.innerHTML = "<div><strong></strong><span></span></div>";
-        row.querySelector("strong").textContent = entry.version;
+        row.querySelector("strong").textContent = entry.version + (entry.date ? " · " + entry.date : "");
         row.querySelector("span").textContent = entry.description && entry.description.zh ? entry.description.zh : "";
         row.addEventListener("click", () => { select.value = entry.version; fillForm(entry.version); });
         list.appendChild(row);
       });
     }
     if (!versionInput.value) versionInput.value = nextVersion();
+    if (dateInput && !dateInput.value) dateInput.value = todayValue();
   }
 
   function fillForm(version) {
@@ -131,11 +137,13 @@
       versionInput.value = nextVersion();
       zhInput.value = "";
       enInput.value = "";
+      if (dateInput) dateInput.value = todayValue();
       return;
     }
     versionInput.value = entry.version;
     zhInput.value = entry.description && entry.description.zh ? entry.description.zh : "";
     enInput.value = entry.description && entry.description.en ? entry.description.en : "";
+    if (dateInput) dateInput.value = entry.date || todayValue();
   }
 
   async function loadPublic() {
@@ -155,6 +163,7 @@
     versionInput.value = nextVersion();
     zhInput.value = "";
     enInput.value = "";
+    if (dateInput) dateInput.value = todayValue();
     zhInput.focus();
   });
   form.querySelector("[data-changelog-delete]").addEventListener("click", async () => {
@@ -189,6 +198,7 @@
       const existing = changelog.updates.find((entry) => entry.version === version);
       const nextEntry = {
         version,
+        date: dateInput ? dateInput.value : todayValue(),
         description: { zh: zhInput.value.trim(), en: enInput.value.trim() }
       };
       if (existing) Object.assign(existing, nextEntry);

@@ -25,9 +25,10 @@
       const row = document.createElement("div");
       row.className = "changelog-row";
       row.setAttribute("role", "row");
-      row.innerHTML = '<div role="cell"></div><div role="cell"></div>';
+      row.innerHTML = '<div role="cell"></div><div role="cell"></div><div role="cell"></div>';
       row.children[0].textContent = text(entry.description);
-      row.children[1].textContent = entry.version;
+      row.children[1].textContent = entry.date || "";
+      row.children[2].textContent = entry.version;
       rows.appendChild(row);
     });
 

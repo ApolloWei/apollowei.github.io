@@ -22,6 +22,9 @@
       language: {
         switchLabel: "语言切换"
       },
+      pageTitle: {
+        changelog: "Apollo | 更新日志"
+      },
       gate: {
         eyebrow: "Private Portfolio",
         title: "Apollo 航拍大厅",
@@ -128,6 +131,15 @@
         eyebrow: "Comments",
         title: "留言评价"
       },
+      changelog: {
+        eyebrow: "Release Notes",
+        title: "更新日志",
+        text: "这里记录 Apollo 网站每一次制作和功能更新。",
+        tableLabel: "更新日志表格",
+        descriptionColumn: "更新描述",
+        dateColumn: "日期",
+        versionColumn: "版本"
+      },
       footer: {
         tagline: "Aerial video portfolio"
       }
@@ -153,6 +165,9 @@
       },
       language: {
         switchLabel: "Language switch"
+      },
+      pageTitle: {
+        changelog: "Apollo | Changelog"
       },
       gate: {
         eyebrow: "Private Portfolio",
@@ -260,6 +275,15 @@
         eyebrow: "Comments",
         title: "Comments"
       },
+      changelog: {
+        eyebrow: "Release Notes",
+        title: "Changelog",
+        text: "Every build task and feature update for Apollo's website is recorded here.",
+        tableLabel: "Changelog table",
+        descriptionColumn: "Update Description",
+        dateColumn: "Date",
+        versionColumn: "Version"
+      },
       footer: {
         tagline: "Aerial video portfolio"
       }
@@ -307,6 +331,11 @@
     document.querySelectorAll("[data-i18n-content]").forEach((element) => {
       const value = valueFor(element.dataset.i18nContent, language);
       if (value) element.setAttribute("content", value);
+    });
+
+    document.querySelectorAll("[data-i18n-title]").forEach((element) => {
+      const value = valueFor(element.dataset.i18nTitle, language);
+      if (value) element.textContent = value;
     });
 
     document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
